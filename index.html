@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>천일문 독해 Master 175-177 | 에듀케레 영수학원</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #f5f5f0;
+  color: #1a2744;
+  line-height: 1.7;
+}
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+/* === Sidebar === */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1a2744 0%, #0f1929 100%);
+  color: #fff;
+  padding: 30px 20px;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+  z-index: 100;
+}
+.sidebar-brand {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #c8a84b;
+  margin-bottom: 25px;
+}
+.sidebar-brand h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #c8a84b;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+.sidebar-brand .ko {
+  font-size: 14px;
+  color: #e8d9a4;
+  font-weight: 400;
+}
+.sidebar-title {
+  font-size: 13px;
+  color: #c8a84b;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.passage-list { list-style: none; }
+.passage-list li {
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  background: rgba(255,255,255,0.05);
+  border-left: 3px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+.passage-list li:hover {
+  background: rgba(200,168,75,0.15);
+  border-left-color: #c8a84b;
+  transform: translateX(4px);
+}
+.passage-list li.active {
+  background: rgba(200,168,75,0.25);
+  border-left-color: #c8a84b;
+  font-weight: 600;
+}
+.passage-num {
+  display: inline-block;
+  background: #c8a84b;
+  color: #1a2744;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 12px;
+}
+/* === Main Content === */
+.main {
+  margin-left: 280px;
+  flex: 1;
+  padding: 40px 50px;
+  max-width: calc(100vw - 280px);
+}
+.cover {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fff 0%, #f5f5f0 100%);
+  border-radius: 12px;
+  border: 2px solid #c8a84b;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 30px rgba(26,39,68,0.08);
+}
+.cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: #1a2744;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+}
+.cover h2 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 28px;
+  color: #c8a84b;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 4px;
+}
+.cover .subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+.cover .academy {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #1a2744;
+  color: #c8a84b;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: 2px;
+}
+.cover .info {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.8;
+}
+/* === Passage Container === */
+.passage {
+  display: none;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(26,39,68,0.06);
+}
+.passage.active { display: block; }
+.passage-header {
+  border-bottom: 3px solid #c8a84b;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+.passage-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #1a2744;
+  margin-bottom: 8px;
+}
+.passage-header .ko-title {
+  font-size: 18px;
+  color: #555;
+  font-weight: 500;
+}
+/* === Tabs === */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e8e4d4;
+  padding-bottom: 0;
+}
+.tab-btn {
+  padding: 12px 20px;
+  background: #f5f5f0;
+  border: 2px solid transparent;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.2s ease;
+}
+.tab-btn:hover {
+  background: #e8e4d4;
+  color: #1a2744;
+}
+.tab-btn.active {
+  background: #1a2744;
+  color: #c8a84b;
+  border-color: #1a2744;
+  font-weight: 700;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* === Full Text Box === */
+.fulltext-box {
+  border: 2px solid #1a2744;
+  border-left: 6px solid #1a2744;
+  background: #fafaf5;
+  padding: 30px 35px;
+  border-radius: 6px;
+  font-family: 'EB Garamond', serif;
+  font-size: 17pt;
+  line-height: 1.9;
+  color: #222;
+  margin-bottom: 20px;
+}
+.fulltext-box .num {
+  display: inline-block;
+  background: #1a2744;
+  color: #c8a84b;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+/* === Sentence Analysis === */
+.sentence-block {
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px dashed #d0c89c;
+}
+.sentence-block:last-child { border-bottom: none; }
+.sentence-num {
+  display: inline-block;
+  background: #1a2744;
+  color: #c8a84b;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.eng-box {
+  border: 1px solid #ccc;
+  border-left: 4px solid #2e75b6;
+  background: #fff;
+  padding: 18px 22px;
+  border-radius: 4px;
+  font-family: 'EB Garamond', serif;
+  font-size: 16pt;
+  line-height: 1.7;
+  color: #222;
+  margin-bottom: 15px;
+}
+.translation {
+  background: #f9f6ee;
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+.translation .chunk {
+  font-family: 'EB Garamond', serif;
+  font-size: 14pt;
+  color: #444;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.translation .ko-trans {
+  font-size: 15px;
+  color: #1a2744;
+  font-weight: 500;
+}
+.grammar-list {
+  background: #fffdf5;
+  border: 1px solid #e8d9a4;
+  border-radius: 4px;
+  padding: 15px 20px;
+}
+.grammar-list .item {
+  margin-bottom: 10px;
+  padding-left: 5px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.grammar-list .item:last-child { margin-bottom: 0; }
+.grammar-list .label {
+  font-weight: 700;
+  color: #7f6000;
+  margin-right: 5px;
+}
+.grammar-list .point {
+  color: #1a2744;
+  font-weight: 600;
+}
+/* === Vocabulary === */
+.vocab-list { display: flex; flex-direction: column; gap: 10px; }
+.vocab-item {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 80px 1.5fr;
+  gap: 15px;
+  padding: 14px 18px;
+  background: #f9f6ee;
+  border-left: 4px solid #c8a84b;
+  border-radius: 4px;
+  align-items: center;
+}
+.vocab-word {
+  font-family: 'EB Garamond', serif;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #1a2744;
+}
+.vocab-mean {
+  font-size: 14px;
+  color: #1a2744;
+  font-weight: 500;
+}
+.vocab-pos {
+  font-size: 12px;
+  color: #7f6000;
+  background: #fff2cc;
+  padding: 3px 8px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 600;
+}
+.vocab-deriv {
+  font-size: 13px;
+  color: #555;
+  font-style: italic;
+}
+/* === Translation full === */
+.full-translation {
+  background: #fafaf5;
+  padding: 28px 32px;
+  border-radius: 6px;
+  border-left: 4px solid #1a2744;
+  font-size: 16px;
+  line-height: 2;
+  color: #222;
+}
+/* === Theme & Summary === */
+.theme-block { margin-bottom: 22px; }
+.theme-label {
+  display: inline-block;
+  background: #1a2744;
+  color: #c8a84b;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.theme-content {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #222;
+  background: #f9f6ee;
+  padding: 18px 22px;
+  border-radius: 4px;
+  border-left: 3px solid #c8a84b;
+}
+.structure-flow { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid #e8d9a4;
+  border-radius: 4px;
+}
+.flow-step .step-num {
+  background: #c8a84b;
+  color: #1a2744;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.flow-step .step-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #1a2744;
+}
+.flow-step .step-text strong { color: #c8a84b; }
+/* === Background Knowledge === */
+.background-block {
+  background: #f3f0e3;
+  padding: 25px 30px;
+  border-radius: 6px;
+  border-left: 4px solid #c8a84b;
+  margin-bottom: 20px;
+}
+.background-block h4 {
+  color: #1a2744;
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d0c89c;
+}
+.background-block p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 10px;
+}
+.background-block p:last-child { margin-bottom: 0; }
+/* === Quiz === */
+.quiz-q {
+  background: #fff;
+  border: 2px solid #e8e4d4;
+  border-radius: 8px;
+  padding: 25px 28px;
+  margin-bottom: 25px;
+}
+.quiz-q .q-title {
+  font-weight: 700;
+  color: #1a2744;
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #c8a84b;
+}
+.quiz-q .q-stem {
+  font-size: 15px;
+  margin-bottom: 18px;
+  line-height: 1.8;
+  color: #222;
+}
+.quiz-q .q-stem .blank {
+  display: inline-block;
+  min-width: 100px;
+  border-bottom: 2px solid #1a2744;
+  padding: 0 8px;
+  font-weight: 700;
+  color: #c8a84b;
+}
+.quiz-passage {
+  background: #fafaf5;
+  padding: 18px 22px;
+  border-left: 3px solid #2e75b6;
+  border-radius: 4px;
+  font-family: 'EB Garamond', serif;
+  font-size: 14pt;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  color: #222;
+}
+.quiz-passage .underline {
+  border-bottom: 2px solid #1a2744;
+  font-weight: 600;
+}
+.choices { list-style: none; }
+.choices li {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: #f9f6ee;
+  border: 1px solid #e8d9a4;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.7;
+  transition: all 0.2s ease;
+}
+.choices li:hover {
+  background: #fff2cc;
+  border-color: #c8a84b;
+}
+.choices li.correct {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+  font-weight: 600;
+}
+.choices li.wrong {
+  background: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+.choices li .num {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: #1a2744;
+  color: #c8a84b;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 22px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.feedback {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  display: none;
+}
+.feedback.show { display: block; }
+.feedback.ok {
+  background: #d4edda;
+  color: #155724;
+  border-left: 3px solid #28a745;
+}
+.feedback.no {
+  background: #f8d7da;
+  color: #721c24;
+  border-left: 3px solid #dc3545;
+}
+.reset-btn {
+  background: transparent;
+  color: #555;
+  border: 1px solid #ccc;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+.reset-btn:hover { background: #f5f5f0; border-color: #1a2744; color: #1a2744; }
+/* === Essay === */
+.essay-q {
+  background: #fff;
+  border: 2px solid #e8e4d4;
+  border-radius: 8px;
+  padding: 25px 28px;
+  margin-bottom: 25px;
+}
+.essay-q .e-title {
+  font-weight: 700;
+  color: #1a2744;
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #c8a84b;
+}
+.essay-q .e-cond {
+  background: #fff2cc;
+  border-left: 3px solid #c8a84b;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 12px;
+  color: #7f6000;
+  border-radius: 3px;
+}
+.essay-q .e-stem {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #222;
+}
+.essay-q textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  resize: vertical;
+  margin-bottom: 12px;
+}
+.essay-q textarea:focus {
+  outline: none;
+  border-color: #c8a84b;
+  box-shadow: 0 0 0 2px rgba(200,168,75,0.2);
+}
+.toggle-btn {
+  background: #1a2744;
+  color: #c8a84b;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.toggle-btn:hover { background: #2a3a5a; }
+.model-ans {
+  display: none;
+  margin-top: 14px;
+  background: #f0f7e8;
+  border-left: 3px solid #5e8a3a;
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #2a4a1a;
+}
+.model-ans.show { display: block; }
+.model-ans .ans-label {
+  font-weight: 700;
+  color: #5e8a3a;
+  margin-bottom: 6px;
+  display: block;
+}
+/* Footer */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  border-top: 1px solid #e8e4d4;
+}
+.footer strong { color: #1a2744; }
+@media (max-width: 768px) {
+  .sidebar { width: 220px; }
+  .main { margin-left: 220px; padding: 20px; }
+  .vocab-item { grid-template-columns: 1fr; gap: 5px; }
+  .cover h1 { font-size: 32px; }
+  .cover h2 { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <h1>EDUCERE</h1>
+    <div class="ko">에듀케레 영수학원</div>
+  </div>
+  <div class="sidebar-title">천일문 독해 Master</div>
+  <ul class="passage-list">
+    <li onclick="showPassage(0)" id="nav-0" class="active">
+      <span class="passage-num">175</span>Neural System &amp; Body
+    </li>
+    <li onclick="showPassage(1)" id="nav-1">
+      <span class="passage-num">176</span>Cosmological Simulations
+    </li>
+    <li onclick="showPassage(2)" id="nav-2">
+      <span class="passage-num">177</span>Dewey: Art as Experience
+    </li>
+  </ul>
+</aside>
+<main class="main">
+<div id="passage-cover" class="cover" style="display:block;">
+  <h1>EDUCERE</h1>
+  <h2>천일문 독해 Master 175-177</h2>
+  <div class="subtitle">고급 영문독해 분석 · 인터랙티브 학습 자료</div>
+  <div class="academy">에듀케레 영수학원</div>
+  <div class="info">
+    경남 양산시 물금읍 · 055-363-8010<br>
+    Educare English &amp; Math Academy
+  </div>
+</div>
+
+<!-- ========== PASSAGE 1: 175 ========== -->
+<div id="passage-0" class="passage">
+<div class="passage-header">
+  <h2>Passage 175</h2>
+  <div class="ko-title">신경계와 신체: 공유된 행위주체성 (Shared Agency)</div>
+</div>
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(0,0,this)">① 전문</button>
+  <button class="tab-btn" onclick="showTab(0,1,this)">② 문장분석</button>
+  <button class="tab-btn" onclick="showTab(0,2,this)">③ 핵심단어 및 표현</button>
+  <button class="tab-btn" onclick="showTab(0,3,this)">④ 전문해석</button>
+  <button class="tab-btn" onclick="showTab(0,4,this)">⑤ 주제와 요지</button>
+  <button class="tab-btn" onclick="showTab(0,5,this)">⑥ 배경지식</button>
+  <button class="tab-btn" onclick="showTab(0,6,this)">⑦ 변형문제</button>
+</div>
+
+<!-- TAB 1: Full Text -->
+<div id="t-0-0" class="tab-content active">
+<div class="fulltext-box">
+<span class="num">①</span> The neural system of an animal or human is just as physically embodied as the rest of the body: it is not hidden away in a microprocessor that operates independently like a robot. <span class="num">②</span> In robots, the microprocessor—the controller—consumes little energy compared to the motors it controls. <span class="num">③</span> However, the human brain uses about 20% of the total energy the body consumes, implying it reacts, not just commands. <span class="num">④</span> The distinction between controller and controlled becomes even more blurred if we take into account that the body itself—its shape and physical makeup—and the system-environment interaction also take over control tasks. <span class="num">⑤</span> Imagine that you are running along a level jogging path and then the path goes downhill a bit. <span class="num">⑥</span> You will start running a bit faster, not because the brain tells the body to run faster, but because gravity accelerates the body, which in turn makes the limbs move faster, which in turn speeds up the brain&apos;s oscillatory circuits. <span class="num">⑦</span> In other words, no single system prevails: the body and brain shape each other&apos;s behavior through shared agency.
+</div>
+</div>
+
+<!-- TAB 2: Sentence Analysis -->
+<div id="t-0-1" class="tab-content">
+
+<div class="sentence-block">
+<div><span class="sentence-num">①</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+The neural system of an animal or human is <u>just as</u> physically embodied <u>as</u> the rest of the body: it is not hidden away in a microprocessor <u>that</u> operates independently like a robot.
+</div>
+<div class="translation">
+<div class="chunk">The neural system of an animal or human / is just as physically embodied / as the rest of the body: / it is not hidden away in a microprocessor / that operates independently / like a robot.</div>
+<div class="ko-trans">동물이나 인간의 신경계는 / 물리적으로 구현되어 있다 / 신체의 나머지 부분만큼이나: / 그것(신경계)은 마이크로프로세서 안에 숨겨져 있는 것이 아니다 / 독립적으로 작동하는 / 로봇처럼.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ as~as 동등비교</span> <span class="point">▶ just as physically embodied as the rest of the body</span> ★ 부사 「just」가 비교를 강조하며, 「as+형용사/부사+as」 구조의 핵심 출제 포인트.</div>
+<div class="item"><span class="label">◆ 주격 관계대명사 that</span> <span class="point">▶ a microprocessor that operates independently</span> ★ 선행사가 사물(microprocessor)일 때 that/which 모두 가능. 「that operates」는 단수동사 일치 확인 빈출.</div>
+<div class="item"><span class="label">◆ 수동태 표현 be embodied</span> <span class="point">▶ is just as physically embodied</span> ★ 「embody(구체화하다)」의 수동형, 추상 개념 서술에 자주 활용.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">②</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+In robots, the microprocessor—the controller—consumes little energy <u>compared to</u> the motors <u>it controls</u>.
+</div>
+<div class="translation">
+<div class="chunk">In robots, / the microprocessor—the controller— / consumes little energy / compared to the motors / it controls.</div>
+<div class="ko-trans">로봇에서는 / 마이크로프로세서, 즉 제어 장치는 / 거의 에너지를 소비하지 않는다 / 모터들과 비교해서 / 그것이 제어하는.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 분사구 compared to</span> <span class="point">▶ compared to the motors</span> ★ 「~와 비교하여」의 의미. 「compared with」와 호환 가능하며 비교 대상 서술 출제 빈도 높음.</div>
+<div class="item"><span class="label">◆ 목적격 관계대명사 생략</span> <span class="point">▶ the motors (which/that) it controls</span> ★ 선행사 the motors 뒤 관계대명사 생략 구조. 「it controls」가 후치수식.</div>
+<div class="item"><span class="label">◆ 동격의 대시(—)</span> <span class="point">▶ the microprocessor—the controller—</span> ★ 대시 사이에 동격어구 삽입. 콤마 동격과 동일 기능.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">③</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+However, the human brain uses about 20% of the total energy the body consumes, <u>implying</u> it reacts, not just commands.
+</div>
+<div class="translation">
+<div class="chunk">However, / the human brain uses about 20% of the total energy / the body consumes, / implying / it reacts, / not just commands.</div>
+<div class="ko-trans">그러나 / 인간의 뇌는 총 에너지의 약 20%를 사용한다 / 신체가 소비하는 / 이는 (뇌가) 반응한다는 것을 시사한다 / 단지 명령만 하는 것이 아니라.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 분사구문 implying</span> <span class="point">▶ ~, implying it reacts</span> ★ 「, V-ing」 형태로 결과·부연 설명. 「which implies」로 환원 가능.</div>
+<div class="item"><span class="label">◆ 목적격 관계대명사 생략</span> <span class="point">▶ the total energy (that) the body consumes</span> ★ 선행사 the total energy 뒤 관계대명사 생략. 동사 consumes의 목적어 자리.</div>
+<div class="item"><span class="label">◆ not just A (but B) 구문</span> <span class="point">▶ it reacts, not just commands</span> ★ 「단지 A하는 것이 아니라 B하다」의 변형. 도치된 의미 강조 구문.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">④</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+The distinction between controller and controlled becomes even more blurred <u>if</u> we take into account <u>that</u> the body itself—its shape and physical makeup—and the system-environment interaction also take over control tasks.
+</div>
+<div class="translation">
+<div class="chunk">The distinction between controller and controlled / becomes even more blurred / if we take into account / that the body itself / —its shape and physical makeup— / and the system-environment interaction / also take over control tasks.</div>
+<div class="ko-trans">제어하는 것과 제어되는 것 사이의 구분은 / 훨씬 더 모호해진다 / 우리가 고려한다면 / 신체 자체와 / —그 형태와 물리적 구성— / 시스템-환경 상호작용 또한 / 제어 작업을 떠맡는다는 것을.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ even+비교급 강조</span> <span class="point">▶ even more blurred</span> ★ 「even, much, far, still, a lot」 등이 비교급을 강조. 「very」는 비교급 강조 불가(빈출 함정).</div>
+<div class="item"><span class="label">◆ 명사절 접속사 that</span> <span class="point">▶ take into account that the body itself ~ take over</span> ★ 「take into account that S+V」: ~을 고려하다. 동사구 뒤 명사절 목적어.</div>
+<div class="item"><span class="label">◆ 주어-동사 일치</span> <span class="point">▶ the body itself ... and the system-environment interaction ... take over</span> ★ 두 개의 주어가 「and」로 연결된 복수주어 → 복수동사 take. 주어 거리가 멀어 일치 함정 출제 1순위.</div>
+<div class="item"><span class="label">◆ 동격 대시</span> <span class="point">▶ the body itself—its shape and physical makeup—</span> ★ 대시 안 어구는 the body itself의 동격 보충 설명.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑤</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+<u>Imagine</u> that you are running along a level jogging path and then the path goes downhill a bit.
+</div>
+<div class="translation">
+<div class="chunk">Imagine / that you are running along a level jogging path / and then the path goes downhill a bit.</div>
+<div class="ko-trans">상상해 보라 / 당신이 평평한 조깅 길을 따라 달리고 있다고 / 그러다가 길이 약간 내리막이 된다고.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 명령문 + that절</span> <span class="point">▶ Imagine that S+V</span> ★ 「상상해 보라 ~을」. 동사 imagine은 that절을 목적어로 취함.</div>
+<div class="item"><span class="label">◆ 현재진행형 are running</span> <span class="point">▶ you are running along a level jogging path</span> ★ 가상 상황의 진행 중 동작 묘사. 「along」(~을 따라) 전치사 활용.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑥</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+You will start running a bit faster, <u>not because</u> the brain tells the body to run faster, <u>but because</u> gravity accelerates the body, <u>which in turn</u> makes the limbs move faster, <u>which in turn</u> speeds up the brain&apos;s oscillatory circuits.
+</div>
+<div class="translation">
+<div class="chunk">You will start running a bit faster, / not because the brain tells the body to run faster, / but because gravity accelerates the body, / which in turn makes the limbs move faster, / which in turn speeds up the brain&apos;s oscillatory circuits.</div>
+<div class="ko-trans">당신은 조금 더 빨리 달리기 시작할 것이다 / 뇌가 신체에게 더 빨리 달리라고 명령해서가 아니라 / 중력이 신체를 가속시키기 때문이며 / 이것이 다시 사지를 더 빨리 움직이게 하고 / 이것이 다시 뇌의 진동 회로를 가속화한다.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ not because A but because B</span> <span class="point">▶ not because the brain tells ~ but because gravity accelerates</span> ★ 이유의 상관접속사. 「A 때문이 아니라 B 때문에」. 변형으로 「not A but B」와 동일 패턴 출제.</div>
+<div class="item"><span class="label">◆ 계속적 용법 관계대명사 which</span> <span class="point">▶ ~ accelerates the body, which in turn makes ~, which in turn speeds up ~</span> ★ 콤마+which는 앞 문장(절) 전체를 선행사로 받음. that 사용 불가(빈출 함정).</div>
+<div class="item"><span class="label">◆ 사역동사 make + O + 동사원형</span> <span class="point">▶ makes the limbs move faster</span> ★ 「make+목적어+원형부정사」: ~가 …하게 하다. 「to move」(X), 「move」(O).</div>
+<div class="item"><span class="label">◆ tell + O + to부정사</span> <span class="point">▶ tells the body to run faster</span> ★ 「tell+목적어+to부정사」: ~에게 …하라고 말하다. 5형식 출제 빈출.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑦</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+In other words, no single system <u>prevails</u>: the body and brain shape each other&apos;s behavior <u>through</u> shared agency.
+</div>
+<div class="translation">
+<div class="chunk">In other words, / no single system prevails: / the body and brain shape each other&apos;s behavior / through shared agency.</div>
+<div class="ko-trans">다시 말해서 / 어떤 하나의 시스템도 우세하지 않다: / 신체와 뇌는 서로의 행동을 형성한다 / 공유된 행위주체성을 통해.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ no+단수명사+단수동사</span> <span class="point">▶ no single system prevails</span> ★ 「no」가 단수명사를 수식할 때 단수동사 사용. 전체 부정의 강조 표현.</div>
+<div class="item"><span class="label">◆ each other (대명사)</span> <span class="point">▶ shape each other&apos;s behavior</span> ★ 「서로(둘 사이)」. 셋 이상은 「one another」. 소유격 each other&apos;s 형태 주의.</div>
+<div class="item"><span class="label">◆ 콜론(:)의 부연 기능</span> <span class="point">▶ no single system prevails: the body and brain shape ~</span> ★ 콜론 이후 문장이 앞 명제의 구체적 설명·부연.</div>
+</div>
+</div>
+
+</div>
+
+<!-- TAB 3: Vocabulary -->
+<div id="t-0-2" class="tab-content">
+<div class="vocab-list">
+<div class="vocab-item"><span class="vocab-word">embodied</span><span class="vocab-mean">구현된, 체화된</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">embody (v.), embodiment (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">microprocessor</span><span class="vocab-mean">마이크로프로세서</span><span class="vocab-pos">n.</span><span class="vocab-deriv">processor (n.), process (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">operate</span><span class="vocab-mean">작동하다, 운영하다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">operation (n.), operational (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">consume</span><span class="vocab-mean">소비하다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">consumption (n.), consumer (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">imply</span><span class="vocab-mean">함축하다, 시사하다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">implication (n.), implicit (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">distinction</span><span class="vocab-mean">구분, 차이</span><span class="vocab-pos">n.</span><span class="vocab-deriv">distinct (adj.), distinguish (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">blurred</span><span class="vocab-mean">모호한, 흐릿한</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">blur (v./n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">take into account</span><span class="vocab-mean">고려하다</span><span class="vocab-pos">phr.</span><span class="vocab-deriv">account for, consider (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">makeup</span><span class="vocab-mean">구성, 구조</span><span class="vocab-pos">n.</span><span class="vocab-deriv">make up (phr.v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">interaction</span><span class="vocab-mean">상호작용</span><span class="vocab-pos">n.</span><span class="vocab-deriv">interact (v.), interactive (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">take over</span><span class="vocab-mean">떠맡다, 인수하다</span><span class="vocab-pos">phr.v.</span><span class="vocab-deriv">takeover (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">accelerate</span><span class="vocab-mean">가속시키다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">acceleration (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">limb</span><span class="vocab-mean">사지(팔다리)</span><span class="vocab-pos">n.</span><span class="vocab-deriv">—</span></div>
+<div class="vocab-item"><span class="vocab-word">oscillatory</span><span class="vocab-mean">진동하는, 진동의</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">oscillate (v.), oscillation (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">prevail</span><span class="vocab-mean">우세하다, 만연하다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">prevalent (adj.), prevalence (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">agency</span><span class="vocab-mean">행위주체성, 작용</span><span class="vocab-pos">n.</span><span class="vocab-deriv">agent (n.)</span></div>
+</div>
+</div>
+
+<!-- TAB 4: Full Translation -->
+<div id="t-0-3" class="tab-content">
+<div class="full-translation">
+동물이나 인간의 신경계는 신체의 나머지 부분만큼이나 물리적으로 구현되어 있다. 즉, 신경계는 로봇처럼 독립적으로 작동하는 마이크로프로세서 안에 숨겨져 있는 것이 아니다. 로봇의 경우, 마이크로프로세서, 곧 제어 장치는 자신이 제어하는 모터들에 비해 거의 에너지를 소비하지 않는다. 그러나 인간의 뇌는 신체가 소비하는 총 에너지의 약 20%를 사용하는데, 이는 뇌가 단지 명령만 내리는 것이 아니라 (외부 자극에) 반응하기도 한다는 점을 시사한다. 만일 신체 자체—그 형태와 물리적 구성—그리고 시스템과 환경 사이의 상호작용 또한 제어 작업을 떠맡는다는 점을 고려하면, 제어하는 것과 제어되는 것 사이의 구분은 한층 더 모호해진다. 당신이 평평한 조깅 길을 따라 달리다가 길이 약간 내리막이 되는 상황을 상상해 보라. 당신은 조금 더 빨리 달리기 시작할 것인데, 이는 뇌가 신체에게 더 빨리 달리라고 명령해서가 아니라, 중력이 신체를 가속시키고, 이것이 다시 사지를 더 빨리 움직이게 하며, 이것이 또다시 뇌의 진동 회로 속도를 높이기 때문이다. 다시 말해, 어떤 하나의 시스템도 일방적으로 우세하지 않다. 신체와 뇌는 공유된 행위주체성을 통해 서로의 행동을 함께 형성한다.
+</div>
+</div>
+
+<!-- TAB 5: Theme & Summary -->
+<div id="t-0-4" class="tab-content">
+<div class="theme-block">
+<span class="theme-label">주제 (Topic)</span>
+<div class="theme-content">신체와 뇌의 상호작용을 통한 공유된 행위주체성(shared agency)</div>
+</div>
+<div class="theme-block">
+<span class="theme-label">요지 (Main Idea)</span>
+<div class="theme-content">인간의 신경계는 로봇의 마이크로프로세서처럼 독립적으로 명령을 내리는 통제 장치가 아니라, 신체 및 환경과 상호작용하면서 함께 행동을 형성하는 체화된(embodied) 시스템이다. 즉, 뇌·신체·환경은 어느 하나가 우세하지 않은 공유된 행위주체성을 가진다.</div>
+</div>
+<div class="theme-block">
+<span class="theme-label">구조 흐름 (Structure)</span>
+<div class="structure-flow">
+<div class="flow-step"><span class="step-num">1</span><span class="step-text"><strong>도입(대조 제시):</strong> 인간 신경계 vs. 로봇의 마이크로프로세서 — 신경계는 신체와 마찬가지로 물리적으로 체화되어 있다.</span></div>
+<div class="flow-step"><span class="step-num">2</span><span class="step-text"><strong>근거1(에너지 소비):</strong> 로봇은 컨트롤러가 거의 에너지를 쓰지 않지만, 인간의 뇌는 전체 에너지의 약 20%를 소비 → 뇌도 반응(react)한다.</span></div>
+<div class="flow-step"><span class="step-num">3</span><span class="step-text"><strong>전개(예시):</strong> 내리막길 조깅 시 속도 증가 → 뇌의 명령이 아닌 중력→신체→사지→뇌 진동 회로 순으로 일어나는 인과 사슬.</span></div>
+<div class="flow-step"><span class="step-num">4</span><span class="step-text"><strong>결론(주장):</strong> 어떤 하나의 시스템도 일방적으로 통제하지 않으며, 신체와 뇌는 공유된 행위주체성으로 서로의 행동을 함께 형성한다.</span></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 6: Background Knowledge -->
+<div id="t-0-5" class="tab-content">
+<div class="background-block">
+<h4>1. 체화된 인지(Embodied Cognition)란?</h4>
+<p>전통적 인지과학은 「뇌=중앙처리장치」라는 컴퓨터 비유를 사용해, 인지 과정을 신체와 분리된 추상적 정보 처리로 보았다. 이 지문은 그러한 「두뇌 중심주의(brain-centric view)」를 비판하는 <strong>체화된 인지</strong> 이론의 입장을 반영한다. 체화된 인지는 사고와 행동이 신체 구조, 감각·운동 시스템, 그리고 환경과의 상호작용 속에서 비로소 형성된다고 본다.</p>
+</div>
+<div class="background-block">
+<h4>2. 뇌의 에너지 소비 ─ 왜 20%인가?</h4>
+<p>성인 뇌는 체중의 약 2%에 불과하지만 신체 전체 에너지(주로 포도당)의 약 20%를 사용한다. 이 사실은 뇌가 단순한 「명령 송출 장치」가 아니라, 끊임없이 감각 입력을 처리하고 신체 상태를 조절하며 환경에 반응하는 활성 기관임을 보여준다. 본문은 이 에너지 비율을 「뇌가 reacts(반응한다)」는 근거로 삼는다.</p>
+</div>
+<div class="background-block">
+<h4>3. 행위주체성(Agency)과 공유된 통제(Shared Control)</h4>
+<p>「Agency」는 행위를 일으키는 주체의 능력·의도성을 뜻하는 철학·인지과학 용어이다. 「Shared agency」는 단일한 명령자 없이 신체·뇌·환경이 서로 영향을 주고받으며 행동을 만들어내는 분산된 통제 모델을 가리킨다. 로봇공학·자율주행·운동제어 연구 등에서 활발히 논의된다.</p>
+</div>
+<div class="background-block">
+<h4>4. 뇌의 진동 회로(Oscillatory Circuits)</h4>
+<p>뇌 신경세포 집단은 일정한 주파수(델타·세타·알파·베타·감마파 등)로 동기화된 전기적 진동을 만들어낸다. 운동 시 사지의 리듬에 맞추어 운동피질의 진동 패턴도 변화하는데, 본문은 이를 「중력→신체→사지→뇌」 순으로 영향이 거꾸로 거슬러 올라가는 사례로 활용한다.</p>
+</div>
+</div>
+
+<!-- TAB 7: Quiz -->
+<div id="t-0-6" class="tab-content">
+
+<div class="quiz-q">
+<div class="q-title">문제 1. 다음 글의 주제로 가장 적절한 것은?</div>
+<ul class="choices">
+<li onclick="check('q0-1', this, false)"><span class="num">1</span> 로봇 공학에서 마이크로프로세서의 에너지 효율성을 높이는 방법
+<div class="feedback no" id="fb-q0-1-1">로봇 공학 기술 자체가 아닌, 인간 신경계와의 「대조」를 위한 도구로 사용됨.</div>
+</li>
+<li onclick="check('q0-1', this, false)"><span class="num">2</span> 인간 뇌가 신체 활동의 모든 측면을 통제하는 중심적 역할
+<div class="feedback no" id="fb-q0-1-2">본문은 오히려 뇌의 일방적 통제관을 비판하고 있다.</div>
+</li>
+<li onclick="check('q0-1', this, true)"><span class="num">3</span> 신체와 뇌의 상호작용을 통한 공유된 행위주체성(shared agency)
+<div class="feedback ok" id="fb-q0-1-3">정답. 본문 마지막의 「shared agency」가 핵심 결론.</div>
+</li>
+<li onclick="check('q0-1', this, false)"><span class="num">4</span> 중력이 운동 능력 향상에 미치는 물리학적 영향
+<div class="feedback no" id="fb-q0-1-4">중력은 「뇌-신체 상호작용」을 설명하는 예시일 뿐 주제가 아님.</div>
+</li>
+<li onclick="check('q0-1', this, false)"><span class="num">5</span> 마이크로프로세서와 인간 뇌의 구조적 유사점
+<div class="feedback no" id="fb-q0-1-5">본문은 유사점이 아닌 「차이」와 「체화성」을 강조함.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q0-1')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 2. 다음 빈칸에 들어갈 말로 가장 적절한 것은?</div>
+<div class="q-stem">In other words, no single system prevails: the body and brain shape each other&apos;s behavior through <span class="blank">_______</span>.</div>
+<ul class="choices">
+<li onclick="check('q0-2', this, false)"><span class="num">1</span> isolated computation
+<div class="feedback no" id="fb-q0-2-1">「고립된 계산」은 본문이 비판하는 로봇식 모델.</div>
+</li>
+<li onclick="check('q0-2', this, false)"><span class="num">2</span> hierarchical command
+<div class="feedback no" id="fb-q0-2-2">「위계적 명령」은 본문에서 부정되는 통제관.</div>
+</li>
+<li onclick="check('q0-2', this, true)"><span class="num">3</span> shared agency
+<div class="feedback ok" id="fb-q0-2-3">정답. 본문 결론의 핵심 표현.</div>
+</li>
+<li onclick="check('q0-2', this, false)"><span class="num">4</span> mechanical efficiency
+<div class="feedback no" id="fb-q0-2-4">기계적 효율성은 본문 주제와 무관.</div>
+</li>
+<li onclick="check('q0-2', this, false)"><span class="num">5</span> energy conservation
+<div class="feedback no" id="fb-q0-2-5">에너지 절약은 「로봇」의 특성으로 언급될 뿐 결론 아님.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q0-2')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 3. 다음 밑줄 친 부분 중 어법상 틀린 것은?</div>
+<div class="quiz-passage">
+The distinction between controller and controlled <span class="underline">①becomes</span> even more blurred if we take into account <span class="underline">②that</span> the body itself—its shape and physical makeup—and the system-environment interaction also <span class="underline">③takes</span> over control tasks. You will start running a bit faster, not because the brain tells the body <span class="underline">④to run</span> faster, but because gravity accelerates the body, <span class="underline">⑤which</span> in turn makes the limbs move faster.
+</div>
+<ul class="choices">
+<li onclick="check('q0-3', this, false)"><span class="num">1</span> becomes
+<div class="feedback no" id="fb-q0-3-1">단수 주어 distinction에 단수동사 becomes 적절.</div>
+</li>
+<li onclick="check('q0-3', this, false)"><span class="num">2</span> that
+<div class="feedback no" id="fb-q0-3-2">「take into account」의 목적어 명사절 접속사 that 정확함.</div>
+</li>
+<li onclick="check('q0-3', this, true)"><span class="num">3</span> takes
+<div class="feedback ok" id="fb-q0-3-3">정답. 「the body itself ... and the system-environment interaction」이라는 두 개의 주어가 「and」로 연결된 복수주어이므로 「take」(O)가 맞다.</div>
+</li>
+<li onclick="check('q0-3', this, false)"><span class="num">4</span> to run
+<div class="feedback no" id="fb-q0-3-4">「tell+O+to부정사」 구조 정확함.</div>
+</li>
+<li onclick="check('q0-3', this, false)"><span class="num">5</span> which
+<div class="feedback no" id="fb-q0-3-5">앞 절(gravity accelerates the body) 전체를 받는 계속적 용법 which 적절.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q0-3')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 4. 윗글의 내용과 일치하지 <strong>않는</strong> 것은?</div>
+<ul class="choices">
+<li onclick="check('q0-4', this, false)"><span class="num">1</span> 인간의 신경계는 신체의 다른 부분만큼이나 물리적으로 체화되어 있다.
+<div class="feedback no" id="fb-q0-4-1">①번 문장과 일치.</div>
+</li>
+<li onclick="check('q0-4', this, false)"><span class="num">2</span> 로봇에서 마이크로프로세서는 모터에 비해 적은 에너지를 사용한다.
+<div class="feedback no" id="fb-q0-4-2">②번 문장과 일치.</div>
+</li>
+<li onclick="check('q0-4', this, true)"><span class="num">3</span> 인간의 뇌는 신체 전체 에너지의 약 50%를 사용한다.
+<div class="feedback ok" id="fb-q0-4-3">정답(불일치). 본문은 「about 20%」라고 명시하므로 50%는 사실과 다름.</div>
+</li>
+<li onclick="check('q0-4', this, false)"><span class="num">4</span> 신체의 형태와 환경 상호작용도 제어 작업을 일부 떠맡는다.
+<div class="feedback no" id="fb-q0-4-4">④번 문장과 일치.</div>
+</li>
+<li onclick="check('q0-4', this, false)"><span class="num">5</span> 내리막길에서는 중력이 신체를 가속시켜 운동이 빨라진다.
+<div class="feedback no" id="fb-q0-4-5">⑥번 문장과 일치.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q0-4')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 5. 주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?</div>
+<div class="quiz-passage">
+[주어진 글] The neural system of an animal or human is just as physically embodied as the rest of the body: it is not hidden away in a microprocessor that operates independently like a robot.<br><br>
+<strong>(A)</strong> However, the human brain uses about 20% of the total energy the body consumes, implying it reacts, not just commands. The distinction between controller and controlled becomes even more blurred if we take into account that the body itself and the system-environment interaction also take over control tasks.<br><br>
+<strong>(B)</strong> In other words, no single system prevails: the body and brain shape each other&apos;s behavior through shared agency.<br><br>
+<strong>(C)</strong> In robots, the microprocessor—the controller—consumes little energy compared to the motors it controls.
+</div>
+<ul class="choices">
+<li onclick="check('q0-5', this, false)"><span class="num">1</span> (A) - (B) - (C)
+<div class="feedback no" id="fb-q0-5-1">(A) 시작 「However」가 어색.</div>
+</li>
+<li onclick="check('q0-5', this, false)"><span class="num">2</span> (A) - (C) - (B)
+<div class="feedback no" id="fb-q0-5-2">(A) 시작 부적절.</div>
+</li>
+<li onclick="check('q0-5', this, false)"><span class="num">3</span> (B) - (A) - (C)
+<div class="feedback no" id="fb-q0-5-3">(B)는 결론 「In other words」로 시작.</div>
+</li>
+<li onclick="check('q0-5', this, true)"><span class="num">4</span> (C) - (A) - (B)
+<div class="feedback ok" id="fb-q0-5-4">정답. (C) 로봇 사례 → (A) However로 인간 뇌 대조 → (B) In other words 결론.</div>
+</li>
+<li onclick="check('q0-5', this, false)"><span class="num">5</span> (C) - (B) - (A)
+<div class="feedback no" id="fb-q0-5-5">(B)는 마지막 결론 위치.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q0-5')">↺ 다시 풀기</button>
+</div>
+
+<!-- 서술형 -->
+<div class="essay-q">
+<div class="e-title">서술형 1. 빈칸 요약</div>
+<div class="e-cond">조건: 본문에서 알맞은 표현을 찾아 빈칸 (a), (b)에 한 단어씩 쓰시오.</div>
+<div class="e-stem">
+The human brain is not an isolated controller like a microprocessor; it consumes a large amount of (a) <span class="blank">______</span>, reacting to bodily and environmental inputs. Hence, the body, brain, and environment together exercise control through (b) <span class="blank">______</span> agency.
+</div>
+<textarea placeholder="(a) ____________  (b) ____________ &#10;예시: (a) energy  (b) shared"></textarea>
+<button class="toggle-btn" onclick="toggleAns('ans0-1')">모범답안 보기</button>
+<div class="model-ans" id="ans0-1">
+<span class="ans-label">모범답안</span>
+(a) energy &nbsp; / &nbsp; (b) shared<br>
+<span style="color:#555; font-size:13px;">▶ 본문 ③에서 「the human brain uses about 20% of the total energy」, ⑦에서 「shared agency」를 그대로 활용.</span>
+</div>
+</div>
+
+<div class="essay-q">
+<div class="e-title">서술형 2. 영작 서술</div>
+<div class="e-cond">조건: 본문 ⑥번 문장의 「내리막길 조깅」 사례가 의미하는 바를 「neither A nor B, but their interaction」 형태를 활용하여, 30단어 내외의 완전한 영어 문장 1개로 서술하시오.</div>
+<div class="e-stem">
+[Question] What does the downhill jogging example imply about the relationship between the brain and the body?
+</div>
+<textarea placeholder="자신의 답안을 작성해 보세요. (30단어 내외, 완전한 영어 문장)"></textarea>
+<button class="toggle-btn" onclick="toggleAns('ans0-2')">모범답안 보기</button>
+<div class="model-ans" id="ans0-2">
+<span class="ans-label">모범답안</span>
+The example implies that running faster downhill is caused neither by the brain alone nor by the body alone, but by their interaction with gravity, which shows that the brain and body share control through mutual influence.<br>
+<span style="color:#555; font-size:13px;">▶ 「neither A nor B, but ~」 구조 + interaction/share control 키워드 포함.</span>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ========== PASSAGE 2: 176 ========== -->
+<div id="passage-1" class="passage">
+<div class="passage-header">
+  <h2>Passage 176</h2>
+  <div class="ko-title">우주론적 시뮬레이션과 협업의 가치</div>
+</div>
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(1,0,this)">① 전문</button>
+  <button class="tab-btn" onclick="showTab(1,1,this)">② 문장분석</button>
+  <button class="tab-btn" onclick="showTab(1,2,this)">③ 핵심단어 및 표현</button>
+  <button class="tab-btn" onclick="showTab(1,3,this)">④ 전문해석</button>
+  <button class="tab-btn" onclick="showTab(1,4,this)">⑤ 주제와 요지</button>
+  <button class="tab-btn" onclick="showTab(1,5,this)">⑥ 배경지식</button>
+  <button class="tab-btn" onclick="showTab(1,6,this)">⑦ 변형문제</button>
+</div>
+
+<!-- TAB 1: Full Text -->
+<div id="t-1-0" class="tab-content active">
+<div class="fulltext-box">
+<span class="num">①</span> The popularity of simulations among cosmologists—a dozen or so separate codes, hundreds of simulations and scientific papers each year, and scores of eye-catching press releases—doesn&apos;t mean that we are working toward a final, perfect simulation of everything. <span class="num">②</span> Such an accomplishment of extreme detail is impossible and probably pointless. <span class="num">③</span> Rather, simulations offer a way to structure scientific knowledge, insight, and shared scientific endeavors. <span class="num">④</span> No individual could construct a simulation and compare it to data from a modern survey telescope. <span class="num">⑤</span> The range of expertise is too vast, covering hydrodynamics, star formation, black-hole formation and growth, quantum mechanics, optics, and artificial intelligence. <span class="num">⑥</span> One can study any of these for a lifetime and still have more to learn. <span class="num">⑦</span> This open-endedness is what makes working with simulations exciting. <span class="num">⑧</span> But it also means that teamwork is essential. <span class="num">⑨</span> The most exciting results from simulations are not the virtual worlds they generate, which are only ever a poor shadow of reality—no more thrilling than a weather forecast. <span class="num">⑩</span> The exhilaration lies in the human domain, where simulations express and explore relationships between different scientific ideas.
+</div>
+</div>
+
+<!-- TAB 2: Sentence Analysis -->
+<div id="t-1-1" class="tab-content">
+
+<div class="sentence-block">
+<div><span class="sentence-num">①</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+The popularity of simulations among cosmologists—a dozen or so separate codes, hundreds of simulations and scientific papers each year, and scores of eye-catching press releases—<u>doesn&apos;t mean</u> <u>that</u> we are working <u>toward</u> a final, perfect simulation of everything.
+</div>
+<div class="translation">
+<div class="chunk">The popularity of simulations among cosmologists / —a dozen or so separate codes, / hundreds of simulations and scientific papers each year, / and scores of eye-catching press releases— / doesn&apos;t mean / that we are working toward a final, perfect simulation of everything.</div>
+<div class="ko-trans">우주론자들 사이에서 시뮬레이션의 인기는 / —12개 정도의 별개 코드들 / 매년 수백 개의 시뮬레이션과 학술 논문 / 그리고 수많은 이목을 끄는 보도자료가 있다고 해서— / 의미하지 않는다 / 우리가 모든 것에 대한 최종적이고 완벽한 시뮬레이션을 향해 작업하고 있다는 것을.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 동격 대시(—) 구문</span> <span class="point">▶ The popularity ... —a dozen ..., hundreds ..., scores ...— doesn&apos;t mean</span> ★ 대시 사이 동격 어구가 「The popularity」를 구체적으로 부연. 대시 사이 콤마 사용 가능, 주어-동사 일치는 대시 밖 The popularity가 기준.</div>
+<div class="item"><span class="label">◆ 단수 주어와 단수동사</span> <span class="point">▶ The popularity ~ doesn&apos;t mean</span> ★ 주어 The popularity는 단수. 대시 사이 복수 명사들이 있어도 동사는 단수(빈출 함정).</div>
+<div class="item"><span class="label">◆ 명사절 접속사 that</span> <span class="point">▶ doesn&apos;t mean that we are working ~</span> ★ 동사 mean의 목적어 that절. 「~을 의미하지 않는다」.</div>
+<div class="item"><span class="label">◆ work toward</span> <span class="point">▶ working toward a final, perfect simulation</span> ★ 「~을 향해 노력하다」. 전치사 toward와 함께 목표·방향 표현.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">②</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+Such an accomplishment of extreme detail <u>is</u> impossible <u>and</u> probably pointless.
+</div>
+<div class="translation">
+<div class="chunk">Such an accomplishment of extreme detail / is impossible / and probably pointless.</div>
+<div class="ko-trans">극도의 세부 사항에 도달한 그런 성취는 / 불가능하다 / 그리고 아마도 무의미할 것이다.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ such+(a/an)+(형용사)+명사</span> <span class="point">▶ Such an accomplishment of extreme detail</span> ★ 「그러한 ~」 어순 주의: such → a → 형용사 → 명사. 「so」와 어순 차이 빈출.</div>
+<div class="item"><span class="label">◆ 보어의 등위 연결</span> <span class="point">▶ is impossible and probably pointless</span> ★ 「and」로 두 형용사 보어 병렬. 「probably」는 부사로 pointless 수식.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">③</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+Rather, simulations offer a way <u>to structure</u> scientific knowledge, insight, and shared scientific endeavors.
+</div>
+<div class="translation">
+<div class="chunk">Rather, / simulations offer a way / to structure scientific knowledge, insight, / and shared scientific endeavors.</div>
+<div class="ko-trans">오히려 / 시뮬레이션은 방식을 제공한다 / 과학적 지식, 통찰력을 구조화하는 / 그리고 공유된 과학적 노력을.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ to부정사의 형용사적 용법</span> <span class="point">▶ a way to structure ~</span> ★ 명사 way를 후치 수식. 「~할 방식」.</div>
+<div class="item"><span class="label">◆ 명사 병렬 구조</span> <span class="point">▶ scientific knowledge, insight, and shared scientific endeavors</span> ★ 「A, B, and C」 3개 명사구 병렬. 마지막 항목 앞에 and와 옥스퍼드 콤마 사용.</div>
+<div class="item"><span class="label">◆ 부사 Rather</span> <span class="point">▶ Rather, simulations offer ~</span> ★ 「오히려, 그보다는」. 앞 문장 부정 후 정정·전환 시 사용.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">④</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+No individual <u>could</u> construct a simulation and compare it to data from a modern survey telescope.
+</div>
+<div class="translation">
+<div class="chunk">No individual could construct a simulation / and compare it to data / from a modern survey telescope.</div>
+<div class="ko-trans">어떤 개인도 시뮬레이션을 구축할 수 없고 / 그것을 데이터와 비교할 수 없다 / 현대의 관측 망원경에서 나오는.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ no+단수명사 (전체 부정)</span> <span class="point">▶ No individual could construct ~</span> ★ 「어떤 개인도 ~할 수 없다」. 「Not any」보다 강한 부정 강조.</div>
+<div class="item"><span class="label">◆ 조동사 could의 가능성</span> <span class="point">▶ could construct ~ and compare ~</span> ★ 두 동사원형 「construct」와 「compare」가 「could」에 병렬 연결.</div>
+<div class="item"><span class="label">◆ compare A to B</span> <span class="point">▶ compare it to data</span> ★ 「A를 B와 비교하다」. 「compare A with B」와 호환 가능.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑤</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+The range of expertise is <u>too</u> vast, <u>covering</u> hydrodynamics, star formation, black-hole formation and growth, quantum mechanics, optics, and artificial intelligence.
+</div>
+<div class="translation">
+<div class="chunk">The range of expertise / is too vast, / covering hydrodynamics, star formation, / black-hole formation and growth, / quantum mechanics, optics, / and artificial intelligence.</div>
+<div class="ko-trans">전문성의 범위는 / 너무나 방대하다 / 유체역학, 별의 형성, / 블랙홀의 형성과 성장, / 양자역학, 광학, / 그리고 인공지능을 포괄하면서.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ too+형용사 (정도 부사)</span> <span class="point">▶ is too vast</span> ★ 「too」: 너무 ~한(부정적 의미). 「very」와 의미 차이 주의.</div>
+<div class="item"><span class="label">◆ 분사구문 (현재분사)</span> <span class="point">▶ ~, covering hydrodynamics ~</span> ★ 「,V-ing」 형태로 부연 설명. 「and it covers ~」로 환원 가능.</div>
+<div class="item"><span class="label">◆ 다중 명사 병렬</span> <span class="point">▶ hydrodynamics, star formation, ..., and artificial intelligence</span> ★ 콤마 + and로 6개 영역 병렬. 학술적 열거 구조 빈출.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑥</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+One can study any of these for a lifetime and still <u>have more to learn</u>.
+</div>
+<div class="translation">
+<div class="chunk">One can study any of these / for a lifetime / and still have more to learn.</div>
+<div class="ko-trans">사람은 이것들 중 어느 것이든 공부할 수 있다 / 평생 동안 / 그리고 여전히 배울 것이 더 남아 있다.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 일반인 주어 One</span> <span class="point">▶ One can study ~</span> ★ 「(누구나) 사람은 ~할 수 있다」. 격식체에서 「one」으로 일반화.</div>
+<div class="item"><span class="label">◆ to부정사의 형용사적 용법</span> <span class="point">▶ have more to learn</span> ★ 「more」(대명사)를 to부정사가 후치 수식. 「배울 것이 더 있다」.</div>
+<div class="item"><span class="label">◆ 부사 still의 위치</span> <span class="point">▶ and still have more to learn</span> ★ 「여전히, 아직도」. 일반동사 앞·be동사·조동사 뒤에 위치.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑦</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+This open-endedness <u>is</u> <u>what</u> makes working with simulations exciting.
+</div>
+<div class="translation">
+<div class="chunk">This open-endedness / is / what makes working with simulations exciting.</div>
+<div class="ko-trans">이 끝없음(개방성) / 이 곧 / 시뮬레이션 작업을 흥미롭게 만드는 것이다.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 관계대명사 what (선행사 포함)</span> <span class="point">▶ is what makes ~</span> ★ what = the thing which. 보어 자리 명사절을 이끔.</div>
+<div class="item"><span class="label">◆ 사역동사 make + O + 목적격보어(형용사)</span> <span class="point">▶ makes working with simulations exciting</span> ★ 「make+O+형용사」: ~을 …하게 만들다. O 자리에 동명사구 「working with simulations」.</div>
+<div class="item"><span class="label">◆ 동명사 주어/목적어</span> <span class="point">▶ working with simulations</span> ★ make의 목적어로 동명사구. 단수 취급.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑧</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+But it also means <u>that</u> teamwork is essential.
+</div>
+<div class="translation">
+<div class="chunk">But / it also means / that teamwork is essential.</div>
+<div class="ko-trans">그러나 / 그것은 또한 의미한다 / 팀워크가 필수적이라는 것을.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 명사절 접속사 that</span> <span class="point">▶ means that teamwork is essential</span> ★ 동사 mean의 목적어 that절. 회화체에서는 종종 생략 가능.</div>
+<div class="item"><span class="label">◆ 대명사 it (앞 절을 받음)</span> <span class="point">▶ it also means</span> ★ 「it」은 ⑦ 문장의 「open-endedness」를 가리키는 대용어.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑨</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+The most exciting results from simulations are not the virtual worlds <u>they generate</u>, <u>which</u> are only ever a poor shadow of reality—<u>no more thrilling than</u> a weather forecast.
+</div>
+<div class="translation">
+<div class="chunk">The most exciting results from simulations / are not the virtual worlds / they generate, / which are only ever a poor shadow of reality— / no more thrilling than a weather forecast.</div>
+<div class="ko-trans">시뮬레이션에서 나오는 가장 흥미로운 결과는 / 가상 세계가 아니다 / 그것들이 생성하는 / 그리고 그것은 단지 현실의 빈약한 그림자일 뿐이다— / 일기 예보보다 더 짜릿할 것도 없는.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 목적격 관계대명사 생략</span> <span class="point">▶ the virtual worlds (which/that) they generate</span> ★ 선행사 the virtual worlds 뒤 관계대명사 생략. they generate가 후치수식.</div>
+<div class="item"><span class="label">◆ 계속적 용법 관계대명사 which</span> <span class="point">▶ ~, which are only ever a poor shadow ~</span> ★ 콤마+which로 앞 the virtual worlds 부연 설명. that 사용 불가.</div>
+<div class="item"><span class="label">◆ no more A than B (양자 부정)</span> <span class="point">▶ no more thrilling than a weather forecast</span> ★ 「B만큼이나 A 아닌」. 양자 모두 부정의 강한 비유 표현. 빈출 고난도 구문.</div>
+<div class="item"><span class="label">◆ only ever 강조 부사구</span> <span class="point">▶ are only ever a poor shadow</span> ★ 「겨우 ~일 뿐인」 의미를 강조하는 어구.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑩</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+The exhilaration lies in the human domain, <u>where</u> simulations express and explore relationships between different scientific ideas.
+</div>
+<div class="translation">
+<div class="chunk">The exhilaration lies in the human domain, / where simulations express and explore / relationships between different scientific ideas.</div>
+<div class="ko-trans">그 짜릿함은 인간의 영역에 있다 / 그곳에서 시뮬레이션은 표현하고 탐구한다 / 서로 다른 과학적 아이디어들 사이의 관계를.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 관계부사 where</span> <span class="point">▶ the human domain, where simulations express ~</span> ★ 장소 명사 선행사 + where. 「in which」로 환원 가능.</div>
+<div class="item"><span class="label">◆ 동사 병렬 구조</span> <span class="point">▶ express and explore relationships</span> ★ 두 본동사 「express」와 「explore」가 「and」로 병렬. 같은 목적어 relationships 공유.</div>
+<div class="item"><span class="label">◆ lie in (자동사 구)</span> <span class="point">▶ The exhilaration lies in ~</span> ★ 「~에 (놓여) 있다, ~에 달려 있다」. 「lie-lay-lain」 자동사 변화 주의(「lay-laid-laid」 타동사와 구별).</div>
+</div>
+</div>
+
+</div>
+
+<!-- TAB 3: Vocabulary -->
+<div id="t-1-2" class="tab-content">
+<div class="vocab-list">
+<div class="vocab-item"><span class="vocab-word">simulation</span><span class="vocab-mean">시뮬레이션, 모의 실험</span><span class="vocab-pos">n.</span><span class="vocab-deriv">simulate (v.), simulator (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">cosmologist</span><span class="vocab-mean">우주론자</span><span class="vocab-pos">n.</span><span class="vocab-deriv">cosmology (n.), cosmic (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">eye-catching</span><span class="vocab-mean">이목을 끄는</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">catch the eye (phr.)</span></div>
+<div class="vocab-item"><span class="vocab-word">press release</span><span class="vocab-mean">보도자료</span><span class="vocab-pos">n.</span><span class="vocab-deriv">release (v./n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">accomplishment</span><span class="vocab-mean">성취, 업적</span><span class="vocab-pos">n.</span><span class="vocab-deriv">accomplish (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">pointless</span><span class="vocab-mean">무의미한, 헛된</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">point (n.), pointlessly (adv.)</span></div>
+<div class="vocab-item"><span class="vocab-word">structure</span><span class="vocab-mean">구조화하다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">structure (n.), structural (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">insight</span><span class="vocab-mean">통찰력, 식견</span><span class="vocab-pos">n.</span><span class="vocab-deriv">insightful (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">endeavor</span><span class="vocab-mean">노력, 시도</span><span class="vocab-pos">n.</span><span class="vocab-deriv">endeavor (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">expertise</span><span class="vocab-mean">전문성, 전문 지식</span><span class="vocab-pos">n.</span><span class="vocab-deriv">expert (n./adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">vast</span><span class="vocab-mean">방대한, 광대한</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">vastness (n.), vastly (adv.)</span></div>
+<div class="vocab-item"><span class="vocab-word">hydrodynamics</span><span class="vocab-mean">유체역학</span><span class="vocab-pos">n.</span><span class="vocab-deriv">hydrodynamic (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">open-endedness</span><span class="vocab-mean">개방성, 끝없음</span><span class="vocab-pos">n.</span><span class="vocab-deriv">open-ended (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">essential</span><span class="vocab-mean">필수적인, 본질적인</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">essence (n.), essentially (adv.)</span></div>
+<div class="vocab-item"><span class="vocab-word">virtual</span><span class="vocab-mean">가상의</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">virtually (adv.), virtuality (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">thrilling</span><span class="vocab-mean">짜릿한, 흥미진진한</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">thrill (n./v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">exhilaration</span><span class="vocab-mean">큰 기쁨, 신남</span><span class="vocab-pos">n.</span><span class="vocab-deriv">exhilarating (adj.), exhilarate (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">domain</span><span class="vocab-mean">영역, 분야</span><span class="vocab-pos">n.</span><span class="vocab-deriv">—</span></div>
+</div>
+</div>
+
+<!-- TAB 4: Full Translation -->
+<div id="t-1-3" class="tab-content">
+<div class="full-translation">
+우주론자들 사이에서 시뮬레이션이 인기를 누리고 있다는 사실—12개 남짓의 별개 코드, 매년 쏟아지는 수백 편의 시뮬레이션과 학술 논문, 그리고 수많은 이목을 끄는 보도자료—이 곧 우리가 「모든 것에 대한 최종적이고 완벽한 시뮬레이션」을 향해 나아가고 있다는 뜻은 아니다. 극도의 세부 사항까지 모두 담아낸 그러한 성취는 불가능할 뿐 아니라, 아마도 무의미한 일일 것이다. 오히려 시뮬레이션은 과학적 지식과 통찰, 그리고 공유된 학문적 노력을 체계화하는 하나의 방식을 제공한다. 어떤 한 개인도 혼자서 시뮬레이션을 구축하고 그것을 현대 관측 망원경에서 얻은 데이터와 비교할 수는 없다. 요구되는 전문성의 범위가 너무나 방대해서, 유체역학, 별의 형성, 블랙홀의 형성과 성장, 양자역학, 광학, 인공지능에 이르기까지 폭넓게 걸쳐 있기 때문이다. 이들 중 어느 한 분야만이라도 평생을 바쳐 공부해도 여전히 배울 거리가 남는다. 바로 이 끝없음(개방성)이 시뮬레이션 작업을 흥미롭게 만드는 요소이다. 그러나 이는 동시에 팀워크가 필수적임을 뜻하기도 한다. 시뮬레이션이 만들어내는 가장 흥미로운 결과물은 그것이 생성하는 가상 세계가 아니다. 그 가상 세계는 결국 현실의 빈약한 그림자일 뿐이며, 일기 예보보다 더 짜릿할 것도 없다. 진정한 짜릿함은 인간의 영역에 있다. 그곳에서 시뮬레이션은 서로 다른 과학적 아이디어들 사이의 관계를 표현하고 탐구한다.
+</div>
+</div>
+
+<!-- TAB 5: Theme & Summary -->
+<div id="t-1-4" class="tab-content">
+<div class="theme-block">
+<span class="theme-label">주제 (Topic)</span>
+<div class="theme-content">우주론적 시뮬레이션의 진정한 가치 ─ 협업과 과학적 사고의 매개</div>
+</div>
+<div class="theme-block">
+<span class="theme-label">요지 (Main Idea)</span>
+<div class="theme-content">우주론적 시뮬레이션의 목적은 「모든 것을 완벽하게 모사하는 가상 세계」 자체가 아니다. 시뮬레이션은 광범위한 전문성을 가진 연구자들이 협력하여 과학적 지식과 통찰을 구조화하고, 서로 다른 과학적 아이디어들 사이의 관계를 탐구하도록 돕는 협업의 매개체이다.</div>
+</div>
+<div class="theme-block">
+<span class="theme-label">구조 흐름 (Structure)</span>
+<div class="structure-flow">
+<div class="flow-step"><span class="step-num">1</span><span class="step-text"><strong>도입(통념 반박):</strong> 시뮬레이션의 인기가 「완벽한 가상 우주를 향한 진보」를 의미하지는 않는다. 그런 성취는 불가능하고 무의미하다.</span></div>
+<div class="flow-step"><span class="step-num">2</span><span class="step-text"><strong>전환(주장 제시):</strong> 시뮬레이션은 오히려 과학적 지식·통찰·공유된 노력을 「구조화하는 방식」이다.</span></div>
+<div class="flow-step"><span class="step-num">3</span><span class="step-text"><strong>근거(전문성과 협업):</strong> 유체역학, 별 형성, 블랙홀, 양자역학, 광학, AI 등 한 사람이 다 다룰 수 없는 방대한 영역 → 팀워크 필수.</span></div>
+<div class="flow-step"><span class="step-num">4</span><span class="step-text"><strong>결론(가치의 재정의):</strong> 진정한 흥미는 가상 세계 자체가 아니라, 시뮬레이션을 통해 서로 다른 과학적 아이디어들의 관계를 표현·탐구하는 「인간의 영역」에 있다.</span></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 6: Background Knowledge -->
+<div id="t-1-5" class="tab-content">
+<div class="background-block">
+<h4>1. 우주론적 시뮬레이션(Cosmological Simulation)이란?</h4>
+<p>중력, 유체역학, 방사 효과 등을 컴퓨터로 풀어 우주의 거대 구조 형성·은하 진화·블랙홀 성장 등을 「가상 우주」로 재현하는 연구이다. 대표적으로 IllustrisTNG, EAGLE, FIRE, Millennium Simulation 등이 있다. 슈퍼컴퓨터 수만 코어를 수개월 가동해야 한다.</p>
+</div>
+<div class="background-block">
+<h4>2. 왜 「완벽한 시뮬레이션」은 불가능한가?</h4>
+<p>우주의 모든 입자(10^80개 추정)를 그대로 추적하는 것은 물리적·계산적으로 불가능하다. 또한 「가장 작은 별 하나의 핵반응」부터 「수억 광년 규모의 은하단 형성」까지 시간·공간 스케일이 너무 광대해, 모든 사항을 동시에 정확히 모사할 수는 없다. 따라서 연구자들은 핵심 물리만 구현하는 「하위 격자(sub-grid)」 모형을 세우고, 데이터와 비교하며 수정한다.</p>
+</div>
+<div class="background-block">
+<h4>3. 협업 과학(Collaborative Science)의 부상</h4>
+<p>현대 천문학·우주론은 단일 연구자가 결과를 산출하는 시대를 지나, 수십~수백 명의 다국적 연구진이 코드 개발·데이터 처리·이론 모델·관측 비교에 분업·협업하는 「대형 협업(large collaboration)」 모델이 표준이 되었다. 본문은 이 추세를 시뮬레이션의 본질적 가치로 재해석한다.</p>
+</div>
+<div class="background-block">
+<h4>4. 「현실의 빈약한 그림자」와 모형(Model)의 인식론</h4>
+<p>모든 과학적 모형은 현실의 단순화이다. 영국 통계학자 George Box의 명언 「All models are wrong, but some are useful(모든 모형은 틀렸으나, 일부는 유용하다)」이 이 관점을 잘 보여준다. 본문은 시뮬레이션이 만들어낸 가상 세계 자체가 진리가 아니라, 그것을 통해 인간이 「과학적 아이디어 간 관계」를 탐색하는 데 가치가 있다고 본다.</p>
+</div>
+</div>
+
+<!-- TAB 7: Quiz -->
+<div id="t-1-6" class="tab-content">
+
+<div class="quiz-q">
+<div class="q-title">문제 1. 다음 글의 주제로 가장 적절한 것은?</div>
+<ul class="choices">
+<li onclick="check('q1-1', this, false)"><span class="num">1</span> 우주론 분야의 컴퓨터 처리 능력 발전사
+<div class="feedback no" id="fb-q1-1-1">컴퓨팅 발전이 아닌 시뮬레이션의 「가치 재정의」가 핵심.</div>
+</li>
+<li onclick="check('q1-1', this, false)"><span class="num">2</span> 가상 현실 기술이 일기 예보에 미치는 영향
+<div class="feedback no" id="fb-q1-1-2">「일기 예보」는 비유일 뿐 주제가 아님.</div>
+</li>
+<li onclick="check('q1-1', this, true)"><span class="num">3</span> 우주론적 시뮬레이션의 진정한 가치는 협업적 과학 사고에 있음
+<div class="feedback ok" id="fb-q1-1-3">정답. 「shared scientific endeavors / teamwork / human domain」이 핵심.</div>
+</li>
+<li onclick="check('q1-1', this, false)"><span class="num">4</span> 블랙홀 시뮬레이션 알고리즘의 정확도 향상 방법
+<div class="feedback no" id="fb-q1-1-4">특정 알고리즘이 아닌 시뮬레이션의 본질에 관한 글.</div>
+</li>
+<li onclick="check('q1-1', this, false)"><span class="num">5</span> 보도자료가 과학 연구의 신뢰성에 미치는 영향
+<div class="feedback no" id="fb-q1-1-5">보도자료는 시뮬레이션의 「인기」를 보여주는 부가 요소일 뿐.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q1-1')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 2. 다음 빈칸에 들어갈 말로 가장 적절한 것은?</div>
+<div class="q-stem">Rather, simulations offer a way to structure scientific knowledge, insight, and <span class="blank">_______</span>.</div>
+<ul class="choices">
+<li onclick="check('q1-2', this, false)"><span class="num">1</span> commercial profits
+<div class="feedback no" id="fb-q1-2-1">상업적 이익은 본문 내용과 무관.</div>
+</li>
+<li onclick="check('q1-2', this, true)"><span class="num">2</span> shared scientific endeavors
+<div class="feedback ok" id="fb-q1-2-2">정답. 「공유된 과학적 노력」 ─ 협업·팀워크 강조와 일치.</div>
+</li>
+<li onclick="check('q1-2', this, false)"><span class="num">3</span> individual achievements
+<div class="feedback no" id="fb-q1-2-3">본문은 「개인」의 한계를 강조하므로 정반대.</div>
+</li>
+<li onclick="check('q1-2', this, false)"><span class="num">4</span> perfect virtual replicas
+<div class="feedback no" id="fb-q1-2-4">「완벽한 가상 모사」는 본문이 부정하는 통념.</div>
+</li>
+<li onclick="check('q1-2', this, false)"><span class="num">5</span> press releases
+<div class="feedback no" id="fb-q1-2-5">보도자료는 시뮬레이션의 가치가 아님.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q1-2')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 3. 다음 밑줄 친 부분 중 어법상 틀린 것은?</div>
+<div class="quiz-passage">
+The popularity of simulations among cosmologists <span class="underline">①doesn&apos;t</span> mean that we are working toward a final, perfect simulation of everything. The range of expertise is too vast, <span class="underline">②covering</span> hydrodynamics, star formation, and quantum mechanics. One can study any of these for a lifetime and still <span class="underline">③having</span> more to learn. This open-endedness is <span class="underline">④what</span> makes working with simulations exciting. The exhilaration lies in the human domain, <span class="underline">⑤where</span> simulations express and explore relationships between different scientific ideas.
+</div>
+<ul class="choices">
+<li onclick="check('q1-3', this, false)"><span class="num">1</span> doesn&apos;t
+<div class="feedback no" id="fb-q1-3-1">단수주어 The popularity → 단수동사 doesn&apos;t. 정확.</div>
+</li>
+<li onclick="check('q1-3', this, false)"><span class="num">2</span> covering
+<div class="feedback no" id="fb-q1-3-2">분사구문 「~을 포괄하면서」 정확.</div>
+</li>
+<li onclick="check('q1-3', this, true)"><span class="num">3</span> having
+<div class="feedback ok" id="fb-q1-3-3">정답. 「can study ~ and (can) have more to learn」 ─ can에 병렬 연결되는 동사원형 「have」가 와야 함.</div>
+</li>
+<li onclick="check('q1-3', this, false)"><span class="num">4</span> what
+<div class="feedback no" id="fb-q1-3-4">선행사 포함 관계대명사 what이 보어절을 이끄는 구조 정확.</div>
+</li>
+<li onclick="check('q1-3', this, false)"><span class="num">5</span> where
+<div class="feedback no" id="fb-q1-3-5">장소 명사 the human domain 후 관계부사 where 정확.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q1-3')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 4. 윗글의 내용과 일치하지 <strong>않는</strong> 것은?</div>
+<ul class="choices">
+<li onclick="check('q1-4', this, false)"><span class="num">1</span> 우주론자들은 매년 수백 편의 시뮬레이션 논문을 발표한다.
+<div class="feedback no" id="fb-q1-4-1">①번 문장과 일치.</div>
+</li>
+<li onclick="check('q1-4', this, true)"><span class="num">2</span> 한 명의 개인이 시뮬레이션 구축과 망원경 데이터 비교를 모두 수행할 수 있다.
+<div class="feedback ok" id="fb-q1-4-2">정답(불일치). 본문 ④는 「No individual could」라고 명시 ─ 어떤 개인도 불가능.</div>
+</li>
+<li onclick="check('q1-4', this, false)"><span class="num">3</span> 시뮬레이션이 다루는 전문 분야는 양자역학·광학·인공지능까지 매우 광범위하다.
+<div class="feedback no" id="fb-q1-4-3">⑤번 문장과 일치.</div>
+</li>
+<li onclick="check('q1-4', this, false)"><span class="num">4</span> 시뮬레이션의 끝없는 개방성은 작업을 흥미롭게 만든다.
+<div class="feedback no" id="fb-q1-4-4">⑦번 문장과 일치.</div>
+</li>
+<li onclick="check('q1-4', this, false)"><span class="num">5</span> 시뮬레이션의 진정한 짜릿함은 인간의 영역에 있다.
+<div class="feedback no" id="fb-q1-4-5">⑩번 문장과 일치.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q1-4')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 5. 주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?</div>
+<div class="quiz-passage">
+[주어진 글] The popularity of simulations among cosmologists doesn&apos;t mean that we are working toward a final, perfect simulation of everything. Such an accomplishment of extreme detail is impossible and probably pointless.<br><br>
+<strong>(A)</strong> No individual could construct a simulation and compare it to data from a modern survey telescope. The range of expertise is too vast, covering hydrodynamics, star formation, quantum mechanics, optics, and artificial intelligence.<br><br>
+<strong>(B)</strong> Rather, simulations offer a way to structure scientific knowledge, insight, and shared scientific endeavors.<br><br>
+<strong>(C)</strong> One can study any of these for a lifetime and still have more to learn. This open-endedness is what makes working with simulations exciting. But it also means that teamwork is essential.
+</div>
+<ul class="choices">
+<li onclick="check('q1-5', this, false)"><span class="num">1</span> (A) - (B) - (C)
+<div class="feedback no" id="fb-q1-5-1">(A) 시작에 「No individual」이 갑자기 등장하기 부적절.</div>
+</li>
+<li onclick="check('q1-5', this, false)"><span class="num">2</span> (A) - (C) - (B)
+<div class="feedback no" id="fb-q1-5-2">(B)의 「Rather」가 마지막 결론으로는 어색.</div>
+</li>
+<li onclick="check('q1-5', this, true)"><span class="num">3</span> (B) - (A) - (C)
+<div class="feedback ok" id="fb-q1-5-3">정답. (B) Rather로 주장 전환 → (A) 그 근거(전문성 광범위) → (C) any of these로 (A) 받아 결론.</div>
+</li>
+<li onclick="check('q1-5', this, false)"><span class="num">4</span> (B) - (C) - (A)
+<div class="feedback no" id="fb-q1-5-4">(C) 「any of these」가 (A)의 전문 분야 목록을 받아야 함.</div>
+</li>
+<li onclick="check('q1-5', this, false)"><span class="num">5</span> (C) - (A) - (B)
+<div class="feedback no" id="fb-q1-5-5">(C) 「any of these」는 앞에 분야 목록이 먼저 와야 성립.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q1-5')">↺ 다시 풀기</button>
+</div>
+
+<!-- 서술형 -->
+<div class="essay-q">
+<div class="e-title">서술형 1. 빈칸 요약</div>
+<div class="e-cond">조건: 본문에서 알맞은 단어를 찾아 빈칸 (a), (b)에 한 단어씩 쓰시오.</div>
+<div class="e-stem">
+The true value of cosmological simulations is not to produce a perfect virtual world, but to (a) <span class="blank">______</span> scientific knowledge and to make (b) <span class="blank">______</span> essential, since no individual can master the entire range of expertise.
+</div>
+<textarea placeholder="(a) ____________  (b) ____________"></textarea>
+<button class="toggle-btn" onclick="toggleAns('ans1-1')">모범답안 보기</button>
+<div class="model-ans" id="ans1-1">
+<span class="ans-label">모범답안</span>
+(a) structure &nbsp; / &nbsp; (b) teamwork<br>
+<span style="color:#555; font-size:13px;">▶ 본문 ③의 「to structure scientific knowledge」, ⑧의 「teamwork is essential」을 그대로 활용.</span>
+</div>
+</div>
+
+<div class="essay-q">
+<div class="e-title">서술형 2. 영작 서술</div>
+<div class="e-cond">조건: 「the most exciting results」가 「가상 세계」가 아닌 이유를 본문 근거에 따라 30단어 내외의 완전한 영어 문장 1개로 서술하시오.</div>
+<div class="e-stem">
+[Question] According to the passage, why are the virtual worlds generated by simulations not the most exciting results?
+</div>
+<textarea placeholder="자신의 답안을 작성해 보세요. (30단어 내외, 완전한 영어 문장)"></textarea>
+<button class="toggle-btn" onclick="toggleAns('ans1-2')">모범답안 보기</button>
+<div class="model-ans" id="ans1-2">
+<span class="ans-label">모범답안</span>
+The virtual worlds are only a poor shadow of reality, no more thrilling than a weather forecast; the real exhilaration lies in the human domain, where simulations explore relationships between different scientific ideas.<br>
+<span style="color:#555; font-size:13px;">▶ 「poor shadow of reality」, 「no more thrilling than a weather forecast」, 「human domain」 핵심어 활용.</span>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ========== PASSAGE 3: 177 ========== -->
+<div id="passage-2" class="passage">
+<div class="passage-header">
+  <h2>Passage 177</h2>
+  <div class="ko-title">John Dewey의 『경험으로서의 예술』 ─ doing과 undergoing</div>
+</div>
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(2,0,this)">① 전문</button>
+  <button class="tab-btn" onclick="showTab(2,1,this)">② 문장분석</button>
+  <button class="tab-btn" onclick="showTab(2,2,this)">③ 핵심단어 및 표현</button>
+  <button class="tab-btn" onclick="showTab(2,3,this)">④ 전문해석</button>
+  <button class="tab-btn" onclick="showTab(2,4,this)">⑤ 주제와 요지</button>
+  <button class="tab-btn" onclick="showTab(2,5,this)">⑥ 배경지식</button>
+  <button class="tab-btn" onclick="showTab(2,6,this)">⑦ 변형문제</button>
+</div>
+
+<!-- TAB 1: Full Text -->
+<div id="t-2-0" class="tab-content active">
+<div class="fulltext-box">
+<span class="num">①</span> In Art as Experience (1934), John Dewey offered an account of real experiences as seamless episodes with pattern and structure. <span class="num">②</span> He described a broad range of episodes, from quarrels with close friends to a storm encountered while crossing the Atlantic. <span class="num">③</span> As the episode &ldquo;moves toward a close,&rdquo; it also has an &ldquo;aesthetic quality that rounds out an experience into completeness and unity as emotional.&rdquo; <span class="num">④</span> Dewey bridged everyday and aesthetic experiences, emphasizing their coherence and unity—qualities we recognize in great works of art, theatre, and film. <span class="num">⑤</span> He also treated doing and undergoing as complementary modes of responding to situations. <span class="num">⑥</span> We can intentionally engage in action (doing) to realize goals and fulfill our needs or desires. <span class="num">⑦</span> But we also react to powerful situations (undergoing) that provoke emotions, linking primitive bodily responses with concrete episodic memories. <span class="num">⑧</span> Building on Dewey&apos;s ideas, the artist or author both creates the image or scene and experiences its effects in a unified fashion. <span class="num">⑨</span> This dynamic interplay between spontaneous interior and reflective exterior roles is essential for the creation of successful artworks.
+</div>
+</div>
+
+<!-- TAB 2: Sentence Analysis -->
+<div id="t-2-1" class="tab-content">
+
+<div class="sentence-block">
+<div><span class="sentence-num">①</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+In Art as Experience (1934), John Dewey offered an account of real experiences <u>as</u> seamless episodes with pattern and structure.
+</div>
+<div class="translation">
+<div class="chunk">In Art as Experience (1934), / John Dewey offered an account of real experiences / as seamless episodes / with pattern and structure.</div>
+<div class="ko-trans">『경험으로서의 예술』(1934)에서 / John Dewey는 실제 경험에 대한 설명을 제시했다 / 매끄러운(이음매 없는) 일화로서 / 패턴과 구조를 지닌.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 자격·간주의 전치사 as</span> <span class="point">▶ an account of real experiences as seamless episodes</span> ★ 「~로서의/~로 (간주된)」. 「as+명사」 구조로 자격 표현.</div>
+<div class="item"><span class="label">◆ 후치 전치사구 수식</span> <span class="point">▶ episodes with pattern and structure</span> ★ 「with+명사」가 명사 episodes를 후치 수식. 「~을 가진 일화」.</div>
+<div class="item"><span class="label">◆ 책 제목 이탤릭/대문자</span> <span class="point">▶ Art as Experience (1934)</span> ★ 책 제목은 본래 이탤릭체 표기. 출판 연도는 괄호 표기.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">②</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+He described a broad range of episodes, <u>from</u> quarrels with close friends <u>to</u> a storm <u>encountered</u> while crossing the Atlantic.
+</div>
+<div class="translation">
+<div class="chunk">He described a broad range of episodes, / from quarrels with close friends / to a storm encountered / while crossing the Atlantic.</div>
+<div class="ko-trans">그는 광범위한 종류의 일화들을 묘사했다 / 친한 친구들과의 다툼에서부터 / 마주친 폭풍에 이르기까지 / 대서양을 건너는 동안.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ from A to B 범위 표현</span> <span class="point">▶ from quarrels ~ to a storm ~</span> ★ 「A부터 B까지」 범위·다양성 강조. A와 B는 같은 품사·구조 병렬.</div>
+<div class="item"><span class="label">◆ 과거분사의 후치 수식</span> <span class="point">▶ a storm encountered while crossing</span> ★ 「a storm (which was) encountered」 ─ 분사구 「encountered ~」가 명사 a storm을 수식. 수동 의미.</div>
+<div class="item"><span class="label">◆ 분사구문에서 접속사 잔류</span> <span class="point">▶ while crossing the Atlantic</span> ★ 「while (he was) crossing」 형태로, 의미 명확화를 위해 접속사 while을 남긴 분사구문.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">③</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+<u>As</u> the episode &ldquo;moves toward a close,&rdquo; it also has an &ldquo;aesthetic quality <u>that</u> rounds out an experience <u>into</u> completeness and unity as emotional.&rdquo;
+</div>
+<div class="translation">
+<div class="chunk">As the episode &ldquo;moves toward a close,&rdquo; / it also has an &ldquo;aesthetic quality / that rounds out an experience / into completeness and unity / as emotional.&rdquo;</div>
+<div class="ko-trans">일화가 「종결로 향해 나아갈수록」 / 그것은 또한 가지게 된다, / 「미적 자질」을 / 경험을 완성시키는 / 완결성과 통일성으로 / 정서적인 것으로서.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 접속사 As (~함에 따라)</span> <span class="point">▶ As the episode moves toward a close</span> ★ 「~함에 따라, ~할 때」 시간·비례. 동시 진행 의미.</div>
+<div class="item"><span class="label">◆ 주격 관계대명사 that</span> <span class="point">▶ an aesthetic quality that rounds out ~</span> ★ 선행사 quality 수식. 동사는 단수 rounds로 일치.</div>
+<div class="item"><span class="label">◆ round A into B</span> <span class="point">▶ rounds out an experience into completeness and unity</span> ★ 「A를 B로 완성·매듭짓다」. 동사구 「round out」 + 「into B」 결합.</div>
+<div class="item"><span class="label">◆ 자격의 as + 형용사</span> <span class="point">▶ as emotional</span> ★ 「정서적인 것으로서」. 형용사 앞 as 표현은 격식체에서 사용.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">④</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+Dewey bridged everyday and aesthetic experiences, <u>emphasizing</u> their coherence and unity—qualities <u>we recognize</u> in great works of art, theatre, and film.
+</div>
+<div class="translation">
+<div class="chunk">Dewey bridged everyday and aesthetic experiences, / emphasizing their coherence and unity / —qualities we recognize / in great works of art, theatre, and film.</div>
+<div class="ko-trans">Dewey는 일상 경험과 미적 경험을 연결했다 / 그것들의 일관성과 통일성을 강조하면서 / —우리가 알아보는 자질들 / 위대한 예술, 연극, 영화 작품에서.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 분사구문 emphasizing</span> <span class="point">▶ ~ experiences, emphasizing their ~</span> ★ 「,V-ing」 분사구문. 「and emphasized」로 환원 가능. 동시 동작·부연.</div>
+<div class="item"><span class="label">◆ 동격 대시(—)</span> <span class="point">▶ coherence and unity—qualities we recognize ~</span> ★ 대시 뒤 「qualities ~」가 앞 「coherence and unity」의 동격 부연.</div>
+<div class="item"><span class="label">◆ 목적격 관계대명사 생략</span> <span class="point">▶ qualities (which/that) we recognize</span> ★ 선행사 qualities 뒤 관계대명사 생략. we recognize의 목적어.</div>
+<div class="item"><span class="label">◆ 형용사 + 명사 등위 병렬</span> <span class="point">▶ everyday and aesthetic experiences</span> ★ 두 형용사가 「and」로 연결되어 동일 명사 experiences 수식.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑤</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+He also treated doing and undergoing <u>as</u> complementary modes of <u>responding</u> to situations.
+</div>
+<div class="translation">
+<div class="chunk">He also treated doing and undergoing / as complementary modes of responding / to situations.</div>
+<div class="ko-trans">그는 또한 doing(능동적 행위)과 undergoing(수동적 겪음)을 다루었다 / 상호 보완적인 방식으로서 / 상황에 반응하는.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ treat A as B</span> <span class="point">▶ treated doing and undergoing as complementary modes</span> ★ 「A를 B로 다루다/간주하다」. 「regard/view/see A as B」와 같은 구문군.</div>
+<div class="item"><span class="label">◆ 동명사 주어/목적어</span> <span class="point">▶ doing and undergoing</span> ★ 동명사가 동사 treat의 목적어로 명사화되어 사용. 추상 개념 명명.</div>
+<div class="item"><span class="label">◆ 전치사 of + 동명사</span> <span class="point">▶ modes of responding to situations</span> ★ 전치사 of 뒤 동명사. 「~하는 방식」 구조.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑥</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+We can intentionally engage in action (doing) <u>to realize</u> goals and <u>fulfill</u> our needs or desires.
+</div>
+<div class="translation">
+<div class="chunk">We can intentionally engage in action (doing) / to realize goals / and fulfill our needs or desires.</div>
+<div class="ko-trans">우리는 의도적으로 행위(doing)에 참여할 수 있다 / 목표를 실현하기 위해 / 그리고 우리의 필요나 욕구를 충족시키기 위해.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ to부정사의 부사적 용법(목적)</span> <span class="point">▶ engage in action to realize ~ and fulfill ~</span> ★ 「~하기 위해」 목적. 두 to부정사 「(to) realize」와 「(to) fulfill」이 and로 병렬.</div>
+<div class="item"><span class="label">◆ engage in</span> <span class="point">▶ engage in action</span> ★ 「~에 참여하다, 종사하다」. 자동사 + in 구조.</div>
+<div class="item"><span class="label">◆ to부정사 병렬 (to 생략)</span> <span class="point">▶ to realize goals and (to) fulfill ~</span> ★ 두 번째 to부정사의 to는 생략 가능. 병렬 구조 빈출 함정.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑦</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+But we also react to powerful situations (undergoing) <u>that</u> provoke emotions, <u>linking</u> primitive bodily responses with concrete episodic memories.
+</div>
+<div class="translation">
+<div class="chunk">But we also react to powerful situations (undergoing) / that provoke emotions, / linking primitive bodily responses / with concrete episodic memories.</div>
+<div class="ko-trans">그러나 우리는 또한 강력한 상황들에 반응하기도 한다(undergoing) / 감정을 불러일으키는 / 원시적인 신체 반응을 연결하면서 / 구체적인 일화 기억과.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 주격 관계대명사 that</span> <span class="point">▶ situations that provoke emotions</span> ★ 선행사 situations(복수) → 동사 provoke(복수형). 일치 빈출.</div>
+<div class="item"><span class="label">◆ 분사구문 linking</span> <span class="point">▶ ~, linking primitive bodily responses with concrete ~</span> ★ 「,V-ing」 부연 분사구문. 「and (it) links ~」로 환원 가능.</div>
+<div class="item"><span class="label">◆ link A with B</span> <span class="point">▶ linking primitive bodily responses with concrete episodic memories</span> ★ 「A를 B와 연결하다」. 「link A to B」와 호환.</div>
+<div class="item"><span class="label">◆ react to (자동사 + 전치사)</span> <span class="point">▶ react to powerful situations</span> ★ 「~에 반응하다」. 전치사 to가 동반.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑧</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+<u>Building on</u> Dewey&apos;s ideas, the artist or author <u>both</u> creates the image or scene <u>and</u> experiences its effects in a unified fashion.
+</div>
+<div class="translation">
+<div class="chunk">Building on Dewey&apos;s ideas, / the artist or author / both creates the image or scene / and experiences its effects / in a unified fashion.</div>
+<div class="ko-trans">Dewey의 아이디어를 토대로 하여 / 예술가 또는 작가는 / 이미지나 장면을 만들기도 하고 / 그것의 효과를 경험하기도 한다 / 통합된 방식으로.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ 분사구문 (이유·근거)</span> <span class="point">▶ Building on Dewey&apos;s ideas, the artist ~</span> ★ 「~을 토대로 하여」. 분사구문이 문두에 와서 주절을 수식.</div>
+<div class="item"><span class="label">◆ both A and B 상관접속사</span> <span class="point">▶ both creates ~ and experiences ~</span> ★ 「A와 B 둘 다」. 두 동사 creates와 experiences가 같은 시제·태로 병렬.</div>
+<div class="item"><span class="label">◆ in a + 형용사 + fashion/way/manner</span> <span class="point">▶ in a unified fashion</span> ★ 「~한 방식으로」 부사구 표현. 「fashion/way/manner」 호환.</div>
+</div>
+</div>
+
+<div class="sentence-block">
+<div><span class="sentence-num">⑨</span><strong style="color:#1a2744;">문장분석</strong></div>
+<div class="eng-box">
+This dynamic interplay <u>between</u> spontaneous interior <u>and</u> reflective exterior roles is essential <u>for</u> the creation of successful artworks.
+</div>
+<div class="translation">
+<div class="chunk">This dynamic interplay / between spontaneous interior / and reflective exterior roles / is essential / for the creation of successful artworks.</div>
+<div class="ko-trans">이러한 역동적인 상호작용 / 자발적인 내면과 / 반성적인 외면의 역할 사이의 / 필수적이다 / 성공적인 예술 작품의 창조를 위해.</div>
+</div>
+<div class="grammar-list">
+<div class="item"><span class="label">◆ between A and B</span> <span class="point">▶ between spontaneous interior and reflective exterior roles</span> ★ 「A와 B 사이의」. 둘 사이의 관계·차이 표현.</div>
+<div class="item"><span class="label">◆ 단수 주어 + 단수동사</span> <span class="point">▶ This dynamic interplay ~ is essential</span> ★ 주어 interplay(단수) → is. 「between A and B」가 사이에 끼어 있어도 주어는 interplay 단수 유지.</div>
+<div class="item"><span class="label">◆ essential for ~</span> <span class="point">▶ is essential for the creation</span> ★ 「~에 필수적인」. 전치사 for + 명사구.</div>
+</div>
+</div>
+
+</div>
+
+<!-- TAB 3: Vocabulary -->
+<div id="t-2-2" class="tab-content">
+<div class="vocab-list">
+<div class="vocab-item"><span class="vocab-word">account</span><span class="vocab-mean">설명, 서술</span><span class="vocab-pos">n.</span><span class="vocab-deriv">account for (phr.v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">seamless</span><span class="vocab-mean">매끄러운, 이음매 없는</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">seam (n.), seamlessly (adv.)</span></div>
+<div class="vocab-item"><span class="vocab-word">episode</span><span class="vocab-mean">일화, 에피소드</span><span class="vocab-pos">n.</span><span class="vocab-deriv">episodic (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">quarrel</span><span class="vocab-mean">다툼, 언쟁</span><span class="vocab-pos">n.</span><span class="vocab-deriv">quarrel (v.), quarrelsome (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">encounter</span><span class="vocab-mean">마주치다, 직면하다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">encounter (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">aesthetic</span><span class="vocab-mean">미적인, 미학의</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">aesthetics (n.), aesthetically (adv.)</span></div>
+<div class="vocab-item"><span class="vocab-word">round out</span><span class="vocab-mean">완성하다, 매듭짓다</span><span class="vocab-pos">phr.v.</span><span class="vocab-deriv">round (adj./v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">completeness</span><span class="vocab-mean">완전함, 완결성</span><span class="vocab-pos">n.</span><span class="vocab-deriv">complete (adj./v.), completion (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">unity</span><span class="vocab-mean">통일성, 일체성</span><span class="vocab-pos">n.</span><span class="vocab-deriv">unify (v.), united (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">bridge</span><span class="vocab-mean">연결하다, 잇다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">bridge (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">coherence</span><span class="vocab-mean">일관성, 응집성</span><span class="vocab-pos">n.</span><span class="vocab-deriv">coherent (adj.), cohere (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">complementary</span><span class="vocab-mean">상호 보완적인</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">complement (n./v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">undergoing</span><span class="vocab-mean">겪음, 수동적 경험</span><span class="vocab-pos">n.(gerund)</span><span class="vocab-deriv">undergo (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">intentionally</span><span class="vocab-mean">의도적으로</span><span class="vocab-pos">adv.</span><span class="vocab-deriv">intention (n.), intentional (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">realize</span><span class="vocab-mean">실현하다; 깨닫다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">realization (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">fulfill</span><span class="vocab-mean">충족시키다, 이행하다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">fulfillment (n.)</span></div>
+<div class="vocab-item"><span class="vocab-word">provoke</span><span class="vocab-mean">불러일으키다, 유발하다</span><span class="vocab-pos">v.</span><span class="vocab-deriv">provocation (n.), provocative (adj.)</span></div>
+<div class="vocab-item"><span class="vocab-word">primitive</span><span class="vocab-mean">원시적인, 원초적인</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">primitively (adv.)</span></div>
+<div class="vocab-item"><span class="vocab-word">build on</span><span class="vocab-mean">~을 토대로 하다</span><span class="vocab-pos">phr.v.</span><span class="vocab-deriv">build (v.)</span></div>
+<div class="vocab-item"><span class="vocab-word">interplay</span><span class="vocab-mean">상호작용</span><span class="vocab-pos">n.</span><span class="vocab-deriv">—</span></div>
+<div class="vocab-item"><span class="vocab-word">spontaneous</span><span class="vocab-mean">자발적인, 즉흥적인</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">spontaneity (n.), spontaneously (adv.)</span></div>
+<div class="vocab-item"><span class="vocab-word">reflective</span><span class="vocab-mean">반성적인, 사색적인</span><span class="vocab-pos">adj.</span><span class="vocab-deriv">reflect (v.), reflection (n.)</span></div>
+</div>
+</div>
+
+<!-- TAB 4: Full Translation -->
+<div id="t-2-3" class="tab-content">
+<div class="full-translation">
+존 듀이(John Dewey)는 『경험으로서의 예술』(1934)에서, 실제 경험을 패턴과 구조를 지닌 「이음매 없는 일화」로 설명했다. 그는 친한 친구와의 다툼에서부터 대서양을 건너다 마주친 폭풍에 이르기까지, 매우 광범위한 일화들을 묘사했다. 일화가 「종결을 향해 나아갈수록」, 그것은 또한 「경험을 정서적인 것으로서의 완결성과 통일성으로 매듭짓는 미적 자질」을 지니게 된다. 듀이는 일상의 경험과 미적 경험을 연결시키며 그 둘의 일관성과 통일성을 강조했다. 이는 우리가 위대한 예술 작품, 연극, 영화에서 알아보게 되는 바로 그 자질이다. 그는 또한 「행함(doing)」과 「겪음(undergoing)」을 상황에 반응하는 두 가지 상호 보완적인 양식으로 다루었다. 우리는 목표를 실현하고 필요나 욕구를 충족하기 위해 의도적으로 행위(doing)에 참여할 수 있다. 그러나 또한 우리는 감정을 불러일으키는 강력한 상황(undergoing)에 반응하기도 하는데, 이때 원초적인 신체 반응이 구체적인 일화 기억과 연결된다. 듀이의 사상에 기반하면, 예술가나 작가는 이미지나 장면을 만들어 내는 동시에, 그 효과를 통합된 방식으로 함께 경험한다. 자발적 내면과 반성적 외면이라는 두 역할 사이의 이러한 역동적 상호작용이야말로, 성공적인 예술 작품의 창조에 필수적이다.
+</div>
+</div>
+
+<!-- TAB 5: Theme & Summary -->
+<div id="t-2-4" class="tab-content">
+<div class="theme-block">
+<span class="theme-label">주제 (Topic)</span>
+<div class="theme-content">듀이의 「경험으로서의 예술」 ─ doing과 undergoing의 통합적 상호작용</div>
+</div>
+<div class="theme-block">
+<span class="theme-label">요지 (Main Idea)</span>
+<div class="theme-content">듀이는 일상의 경험과 미적 경험을 연결하여, 모든 진정한 경험은 패턴·구조·완결성·통일성을 지닌다고 보았다. 특히 그는 능동적 「행함(doing)」과 수동적 「겪음(undergoing)」을 상호 보완적 양식으로 제시했으며, 이 두 역할의 역동적 상호작용이 성공적인 예술 작품 창조의 핵심 조건이라고 주장한다.</div>
+</div>
+<div class="theme-block">
+<span class="theme-label">구조 흐름 (Structure)</span>
+<div class="structure-flow">
+<div class="flow-step"><span class="step-num">1</span><span class="step-text"><strong>도입(저서 소개):</strong> 듀이의 『경험으로서의 예술』(1934)에서 실제 경험을 「패턴과 구조를 지닌 이음매 없는 일화」로 정의.</span></div>
+<div class="flow-step"><span class="step-num">2</span><span class="step-text"><strong>전개1(예시 + 미적 자질):</strong> 친구와의 다툼·폭풍 등 다양한 사례 제시 → 일화가 종결로 나아가며 「완결성과 통일성」이라는 미적 자질을 획득.</span></div>
+<div class="flow-step"><span class="step-num">3</span><span class="step-text"><strong>전개2(doing & undergoing):</strong> 듀이는 능동적 행함(doing)과 수동적 겪음(undergoing)을 상호 보완적인 두 반응 양식으로 제시.</span></div>
+<div class="flow-step"><span class="step-num">4</span><span class="step-text"><strong>결론(예술 창작에의 적용):</strong> 예술가는 이미지·장면을 「창조하는 동시에 경험」 ─ 자발적 내면(doing)과 반성적 외면(undergoing)의 역동적 상호작용이 성공적 예술의 필수 조건.</span></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 6: Background Knowledge -->
+<div id="t-2-5" class="tab-content">
+<div class="background-block">
+<h4>1. 존 듀이(John Dewey, 1859-1952)</h4>
+<p>미국의 대표적 실용주의(pragmatism) 철학자, 교육학자, 사회 비평가. 윌리엄 제임스, 찰스 퍼스와 함께 미국 실용주의 3대 철학자로 꼽힌다. 「경험」과 「민주주의」, 「교육」을 통합적으로 사고한 것으로 유명하며, 「Learning by doing(행함으로써 배운다)」이라는 진보주의 교육 원칙으로도 잘 알려져 있다.</p>
+</div>
+<div class="background-block">
+<h4>2. 『경험으로서의 예술』(Art as Experience, 1934)</h4>
+<p>듀이가 75세에 발표한 미학 분야의 대표 저서. 핵심 주장은 「예술은 박물관에 갇혀 있는 특별한 대상이 아니라, 일상 경험이 가장 응축되고 통합된 형태로 표현된 것」이라는 것이다. 즉, 예술적 경험은 일상 경험과 단절된 것이 아니라 그 연속선상에 있다고 본다.</p>
+</div>
+<div class="background-block">
+<h4>3. doing과 undergoing의 의미</h4>
+<p>듀이 미학의 핵심 개념. <strong>Doing(행함)</strong>은 주체가 목적을 가지고 적극적으로 행동·시도·창조하는 능동적 측면을 가리킨다. <strong>Undergoing(겪음)</strong>은 그 행동의 결과·반작용·환경의 영향을 수동적으로 받아들이고 느끼는 측면이다. 듀이는 이 둘이 분리될 수 없으며, 두 측면이 균형 있게 결합될 때 비로소 「하나의 경험(an experience)」이 성립한다고 보았다.</p>
+</div>
+<div class="background-block">
+<h4>4. 일화 기억(Episodic Memory)과 본문 연결</h4>
+<p>「Episodic memory(일화 기억)」는 인지심리학자 Endel Tulving이 1972년 도입한 개념으로, 시간·장소·정서가 결합된 개인적 사건의 기억을 가리킨다. 본문 ⑦에서 「primitive bodily responses with concrete episodic memories」라고 한 부분은 강력한 정서 자극(undergoing)이 신체 반응과 일화 기억을 통합적으로 묶는다는 현대 인지과학적 시각을 듀이의 사상과 연결한 것이다.</p>
+</div>
+<div class="background-block">
+<h4>5. 「자발적 내면 vs. 반성적 외면」</h4>
+<p>예술가는 영감에 따른 즉흥적·자발적 표현(spontaneous interior)과, 작품을 한 발짝 떨어져 객관적으로 평가·수정하는 반성적 외면(reflective exterior)의 두 역할을 동시에 수행한다. 듀이의 doing/undergoing 개념을 예술 창작 과정에 적용한 것으로, 현대 미학과 창작론에서도 자주 인용되는 관점이다.</p>
+</div>
+</div>
+
+<!-- TAB 7: Quiz -->
+<div id="t-2-6" class="tab-content">
+
+<div class="quiz-q">
+<div class="q-title">문제 1. 다음 글의 주제로 가장 적절한 것은?</div>
+<ul class="choices">
+<li onclick="check('q2-1', this, false)"><span class="num">1</span> 1934년 미국 미학 저작들의 출판 배경
+<div class="feedback no" id="fb-q2-1-1">출판 배경이 아닌 듀이 사상의 「내용」이 핵심.</div>
+</li>
+<li onclick="check('q2-1', this, false)"><span class="num">2</span> 일화 기억의 형성 과정과 신경학적 메커니즘
+<div class="feedback no" id="fb-q2-1-2">일화 기억은 부수적 언급일 뿐 주제가 아님.</div>
+</li>
+<li onclick="check('q2-1', this, true)"><span class="num">3</span> 듀이의 「행함과 겪음」 개념을 통한 경험과 예술의 통합적 이해
+<div class="feedback ok" id="fb-q2-1-3">정답. doing/undergoing 상호작용이 예술 창작의 핵심이라는 본문 결론과 일치.</div>
+</li>
+<li onclick="check('q2-1', this, false)"><span class="num">4</span> 친구와의 다툼이 예술적 영감에 미치는 효과
+<div class="feedback no" id="fb-q2-1-4">예시일 뿐 주제가 아님.</div>
+</li>
+<li onclick="check('q2-1', this, false)"><span class="num">5</span> 일상 경험과 미적 경험의 절대적 분리 필요성
+<div class="feedback no" id="fb-q2-1-5">본문은 둘의 「연결(bridged)」을 강조 ─ 정반대.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q2-1')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 2. 다음 빈칸에 들어갈 말로 가장 적절한 것은?</div>
+<div class="q-stem">This dynamic interplay between spontaneous interior and reflective exterior roles is essential for the creation of <span class="blank">_______</span>.</div>
+<ul class="choices">
+<li onclick="check('q2-2', this, false)"><span class="num">1</span> isolated daydreams
+<div class="feedback no" id="fb-q2-2-1">고립된 공상은 본문 주제와 무관.</div>
+</li>
+<li onclick="check('q2-2', this, false)"><span class="num">2</span> primitive instincts
+<div class="feedback no" id="fb-q2-2-2">원초적 본능은 undergoing의 일부 ─ 결론 키워드 아님.</div>
+</li>
+<li onclick="check('q2-2', this, true)"><span class="num">3</span> successful artworks
+<div class="feedback ok" id="fb-q2-2-3">정답. 본문 마지막 문장의 핵심 결론.</div>
+</li>
+<li onclick="check('q2-2', this, false)"><span class="num">4</span> rational arguments
+<div class="feedback no" id="fb-q2-2-4">합리적 논증이 아닌 「예술 작품」이 결론 대상.</div>
+</li>
+<li onclick="check('q2-2', this, false)"><span class="num">5</span> scientific theories
+<div class="feedback no" id="fb-q2-2-5">과학 이론이 아니라 미학·예술이 주제.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q2-2')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 3. 다음 밑줄 친 부분 중 어법상 틀린 것은?</div>
+<div class="quiz-passage">
+He described a broad range of episodes, from quarrels with close friends to a storm <span class="underline">①encountered</span> while crossing the Atlantic. He also treated doing and undergoing <span class="underline">②as</span> complementary modes of responding to situations. We can intentionally engage in action (doing) <span class="underline">③to realize</span> goals and fulfill our needs or desires. But we also react to powerful situations that <span class="underline">④provokes</span> emotions, linking primitive bodily responses with concrete episodic memories. Building on Dewey&apos;s ideas, the artist or author both creates the image or scene and <span class="underline">⑤experiences</span> its effects in a unified fashion.
+</div>
+<ul class="choices">
+<li onclick="check('q2-3', this, false)"><span class="num">1</span> encountered
+<div class="feedback no" id="fb-q2-3-1">「a storm (which was) encountered」 과거분사 후치수식 정확.</div>
+</li>
+<li onclick="check('q2-3', this, false)"><span class="num">2</span> as
+<div class="feedback no" id="fb-q2-3-2">「treat A as B」 구문 정확.</div>
+</li>
+<li onclick="check('q2-3', this, false)"><span class="num">3</span> to realize
+<div class="feedback no" id="fb-q2-3-3">목적의 to부정사 정확.</div>
+</li>
+<li onclick="check('q2-3', this, true)"><span class="num">4</span> provokes
+<div class="feedback ok" id="fb-q2-3-4">정답. 선행사가 복수명사 「powerful situations」이므로 관계절 동사도 복수형 「provoke」가 옳음.</div>
+</li>
+<li onclick="check('q2-3', this, false)"><span class="num">5</span> experiences
+<div class="feedback no" id="fb-q2-3-5">「both creates ~ and experiences ~」 병렬 구조 정확.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q2-3')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 4. 윗글의 내용과 일치하지 <strong>않는</strong> 것은?</div>
+<ul class="choices">
+<li onclick="check('q2-4', this, false)"><span class="num">1</span> 듀이는 실제 경험을 패턴과 구조를 지닌 일화로 보았다.
+<div class="feedback no" id="fb-q2-4-1">①번 문장과 일치.</div>
+</li>
+<li onclick="check('q2-4', this, false)"><span class="num">2</span> 듀이는 일상 경험과 미적 경험을 연결시켰다.
+<div class="feedback no" id="fb-q2-4-2">④번 문장과 일치.</div>
+</li>
+<li onclick="check('q2-4', this, true)"><span class="num">3</span> 듀이는 doing과 undergoing이 서로 대립하는 모순적 양식이라고 주장했다.
+<div class="feedback ok" id="fb-q2-4-3">정답(불일치). 본문은 둘이 「complementary(상호 보완적)」라고 명시 ─ 대립이 아님.</div>
+</li>
+<li onclick="check('q2-4', this, false)"><span class="num">4</span> 강력한 상황은 원초적 신체 반응과 일화 기억을 연결한다.
+<div class="feedback no" id="fb-q2-4-4">⑦번 문장과 일치.</div>
+</li>
+<li onclick="check('q2-4', this, false)"><span class="num">5</span> 예술가는 작품을 만들면서 동시에 그 효과를 경험한다.
+<div class="feedback no" id="fb-q2-4-5">⑧번 문장과 일치.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q2-4')">↺ 다시 풀기</button>
+</div>
+
+<div class="quiz-q">
+<div class="q-title">문제 5. 주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?</div>
+<div class="quiz-passage">
+[주어진 글] In Art as Experience (1934), John Dewey offered an account of real experiences as seamless episodes with pattern and structure. He described a broad range of episodes, from quarrels with close friends to a storm encountered while crossing the Atlantic.<br><br>
+<strong>(A)</strong> He also treated doing and undergoing as complementary modes of responding to situations. We can intentionally engage in action (doing) to realize goals and fulfill our needs or desires.<br><br>
+<strong>(B)</strong> Dewey bridged everyday and aesthetic experiences, emphasizing their coherence and unity—qualities we recognize in great works of art, theatre, and film.<br><br>
+<strong>(C)</strong> But we also react to powerful situations (undergoing) that provoke emotions. Building on Dewey&apos;s ideas, the artist or author both creates the image or scene and experiences its effects in a unified fashion.
+</div>
+<ul class="choices">
+<li onclick="check('q2-5', this, false)"><span class="num">1</span> (A) - (B) - (C)
+<div class="feedback no" id="fb-q2-5-1">(A) 「He also treated」는 또 다른 측면 추가 ─ (B) 뒤에 와야 함.</div>
+</li>
+<li onclick="check('q2-5', this, false)"><span class="num">2</span> (A) - (C) - (B)
+<div class="feedback no" id="fb-q2-5-2">(B)가 마지막 결론으로는 부적절.</div>
+</li>
+<li onclick="check('q2-5', this, true)"><span class="num">3</span> (B) - (A) - (C)
+<div class="feedback ok" id="fb-q2-5-3">정답. (B) 일상↔미적 경험 연결 → (A) 「He also」로 doing/undergoing 추가, doing 설명 → (C) But undergoing 설명 + 결론.</div>
+</li>
+<li onclick="check('q2-5', this, false)"><span class="num">4</span> (B) - (C) - (A)
+<div class="feedback no" id="fb-q2-5-4">(C)의 「But we also react」는 (A)의 doing 설명 뒤에 와야 자연스러움.</div>
+</li>
+<li onclick="check('q2-5', this, false)"><span class="num">5</span> (C) - (B) - (A)
+<div class="feedback no" id="fb-q2-5-5">(C)의 「But we also」는 doing 설명 다음에 와야 함.</div>
+</li>
+</ul>
+<button class="reset-btn" onclick="resetQuiz('q2-5')">↺ 다시 풀기</button>
+</div>
+
+<!-- 서술형 -->
+<div class="essay-q">
+<div class="e-title">서술형 1. 빈칸 요약</div>
+<div class="e-cond">조건: 본문에서 알맞은 단어를 찾아 빈칸 (a), (b)에 한 단어씩 쓰시오.</div>
+<div class="e-stem">
+According to Dewey, real experiences possess coherence and unity. Successful artworks emerge from the dynamic interplay between two complementary modes—(a) <span class="blank">______</span>, in which we actively engage to realize goals, and (b) <span class="blank">______</span>, in which we react to powerful situations that provoke emotions.
+</div>
+<textarea placeholder="(a) ____________  (b) ____________"></textarea>
+<button class="toggle-btn" onclick="toggleAns('ans2-1')">모범답안 보기</button>
+<div class="model-ans" id="ans2-1">
+<span class="ans-label">모범답안</span>
+(a) doing &nbsp; / &nbsp; (b) undergoing<br>
+<span style="color:#555; font-size:13px;">▶ 본문 ⑤~⑦의 「doing(능동적 행함)」과 「undergoing(수동적 겪음)」 개념을 그대로 활용.</span>
+</div>
+</div>
+
+<div class="essay-q">
+<div class="e-title">서술형 2. 영작 서술</div>
+<div class="e-cond">조건: 듀이의 사상에 기반할 때 「성공적 예술 작품의 창조」에 필수적인 요소가 무엇인지를 「dynamic interplay」 표현을 활용하여 30단어 내외 완전한 영어 문장 1개로 서술하시오.</div>
+<div class="e-stem">
+[Question] Based on Dewey&apos;s ideas, what is essential for the creation of successful artworks?
+</div>
+<textarea placeholder="자신의 답안을 작성해 보세요. (30단어 내외, 완전한 영어 문장)"></textarea>
+<button class="toggle-btn" onclick="toggleAns('ans2-2')">모범답안 보기</button>
+<div class="model-ans" id="ans2-2">
+<span class="ans-label">모범답안</span>
+What is essential is the dynamic interplay between the artist&apos;s spontaneous interior role of creating images or scenes and the reflective exterior role of experiencing the effects of those creations in a unified fashion.<br>
+<span style="color:#555; font-size:13px;">▶ 「dynamic interplay」, 「spontaneous interior」, 「reflective exterior」, 「unified fashion」 핵심어 모두 포함.</span>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="footer">
+<strong>에듀케레 영수학원</strong> · 경남 양산시 물금읍 · 055-363-8010<br>
+Educare English &amp; Math Academy · 천일문 독해 Master 175-177 분석 자료
+</div>
+</main>
+</div>
+
+<script>
+function showPassage(n) {
+  // Hide cover
+  var cover = document.getElementById('passage-cover');
+  if (cover) cover.style.display = 'none';
+  // Hide all passages
+  var passages = document.getElementsByClassName('passage');
+  for (var i = 0; i < passages.length; i++) {
+    passages[i].classList.remove('active');
+  }
+  // Show selected
+  var target = document.getElementById('passage-' + n);
+  if (target) target.classList.add('active');
+  // Update sidebar nav
+  for (var j = 0; j < 3; j++) {
+    var nav = document.getElementById('nav-' + j);
+    if (nav) {
+      if (j === n) nav.classList.add('active');
+      else nav.classList.remove('active');
+    }
+  }
+  // Scroll to top
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function showTab(p, t, btn) {
+  // Hide all tab contents in this passage
+  for (var i = 0; i < 7; i++) {
+    var tc = document.getElementById('t-' + p + '-' + i);
+    if (tc) tc.classList.remove('active');
+  }
+  // Show selected tab
+  var target = document.getElementById('t-' + p + '-' + t);
+  if (target) target.classList.add('active');
+  // Update tab buttons within this passage's tabs container
+  var passageDiv = document.getElementById('passage-' + p);
+  if (passageDiv) {
+    var btns = passageDiv.getElementsByClassName('tab-btn');
+    for (var j = 0; j < btns.length; j++) {
+      btns[j].classList.remove('active');
+    }
+  }
+  if (btn) btn.classList.add('active');
+}
+
+function check(qId, btn, isCorrect) {
+  // Get the choices container of this clicked option
+  var ul = btn.parentElement;
+  var lis = ul.getElementsByTagName('li');
+  // Find which choice number was clicked
+  var choiceIdx = -1;
+  for (var i = 0; i < lis.length; i++) {
+    if (lis[i] === btn) { choiceIdx = i + 1; break; }
+  }
+  // Mark clicked choice
+  if (isCorrect) {
+    btn.classList.add('correct');
+    btn.classList.remove('wrong');
+  } else {
+    btn.classList.add('wrong');
+    btn.classList.remove('correct');
+    // Reveal correct answer
+    for (var k = 0; k < lis.length; k++) {
+      var liFb = lis[k].getElementsByClassName('feedback')[0];
+      if (liFb && liFb.classList.contains('ok')) {
+        lis[k].classList.add('correct');
+      }
+    }
+  }
+  // Show feedback for clicked choice
+  var fbId = 'fb-' + qId + '-' + choiceIdx;
+  var fb = document.getElementById(fbId);
+  if (fb) fb.classList.add('show');
+}
+
+function resetQuiz(qId) {
+  // Find quiz container by reset button context - traverse up from any q-id-containing element
+  var allLis = document.querySelectorAll('[onclick*="' + qId + '"]');
+  for (var i = 0; i < allLis.length; i++) {
+    var li = allLis[i];
+    if (li.tagName === 'LI') {
+      li.classList.remove('correct');
+      li.classList.remove('wrong');
+    }
+  }
+  // Hide all feedback for this qId
+  var fbs = document.querySelectorAll('[id^="fb-' + qId + '-"]');
+  for (var j = 0; j < fbs.length; j++) {
+    fbs[j].classList.remove('show');
+  }
+}
+
+function toggleAns(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  if (el.classList.contains('show')) {
+    el.classList.remove('show');
+  } else {
+    el.classList.add('show');
+  }
+}
+</script>
+</body>
+</html>
+
